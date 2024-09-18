@@ -43,27 +43,23 @@ class Array {
 // } Driver Code Ends
 
 
-
 class Solution {
     // Function to find the leaders in the array.
     static ArrayList<Integer> leaders(int n, int arr[]) {
-       
-        Stack<Integer> stack = new Stack<>();
-        
-        int max = arr[n-1];
-        
-        stack.push(max);
-        
-        for(int i=n-2; i>=0; i--){
-            if(arr[i]>=max){
-                max = arr[i];
-                stack.push(max);
+        ArrayList<Integer> ans= new ArrayList<Integer>();
+        ans.add(arr[n-1]);
+        int max=ans.get(0);
+        for(int i=n-2;i>=0;i--)
+        {
+            if(max<=arr[i])
+            {
+                max=arr[i];
+                ans.add(max);
             }
+            
         }
-        ArrayList<Integer> result = new ArrayList<>();
-        while(!stack.isEmpty()){
-            result.add(stack.pop());
-        }
-        return result;
+        Collections.reverse(ans);
+        return ans;
+    
     }
 }
