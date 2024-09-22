@@ -29,14 +29,15 @@ public class Main {
 class Solution {
     // Returns count buildings that can see sunlight
     public int countBuildings(int[] height) {
-        int count=0;
-        int max=0;
-        for(int h : height){
-            if(h>max){
-                max=h;
-                count++;
-            }
-        }
-        return count;
+      int count=0;
+      int max=0;
+      for(int i=0; i<height.length; i++){
+          if(height[i]>max){
+              max=height[i];
+              count++;
+          }
+          
+      }
+      return count;
     }
 }
