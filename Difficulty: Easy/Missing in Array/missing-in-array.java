@@ -26,20 +26,18 @@ class GFG {
 
 
 // User function Template for Java
-
-
 class Solution {
     int missingNumber(int n, int arr[]) {
-        // Calculate the expected sum of first n natural numbers
-        int total = n * (n + 1) / 2; // Using the formula for the sum of the first n natural numbers
-        int sum = 0;
-
-        // Calculate the sum of the elements in the array
-        for (int i = 0; i < n - 1; i++) {
-            sum += arr[i];
+        // Sum of first n natural numbers
+        int totalSum = n * (n + 1) / 2;
+        
+        // Sum of the elements in the array
+        int arraySum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            arraySum += arr[i];
         }
-
-        // The missing number is the difference between the expected total and the actual sum
-        return total - sum;
+        
+        // The missing number is the difference
+        return totalSum - arraySum;
     }
 }
