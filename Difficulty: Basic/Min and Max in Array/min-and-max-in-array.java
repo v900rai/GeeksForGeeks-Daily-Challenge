@@ -34,23 +34,19 @@ For Example -> return new Pair(minimum,maximum)
 */
 
 class Solution {
- 
-
-public Pair<Long, Long> getMinMax(int[] arr) {
-        Long max=Long.MIN_VALUE;
-        Long min=Long.MAX_VALUE;
-        
-        for(int i=0;i<arr.length;i++){
-            if(min>arr[i]){
-                min=(long)arr[i];
-            }
+    public Pair<Long, Long> getMinMax(int[] arr) {
+        int min=Integer.MAX_VALUE;
+        int max=Integer.MIN_VALUE;
+        for(int i=0; i<arr.length; i++){
             if(max<arr[i]){
-                max=(long)arr[i];
+                max=arr[i];
+            }
+            if(min>arr[i]){
+                min=arr[i];
             }
         }
-        Pair array= new Pair(min,max);
-        return array;
-        
+        return new Pair(min,max);
+       
     }
 }
 
@@ -95,7 +91,9 @@ class GFG {
             Solution ob = new Solution();
             Pair<Long, Long> pp = ob.getMinMax(arr);
             System.out.println(pp.getKey() + " " + pp.getValue());
-        }
+        
+System.out.println("~");
+}
     }
 }
 
