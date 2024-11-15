@@ -15,6 +15,8 @@ public class Main {
             Solution ob = new Solution();
             int ans = ob.getSecondLargest(arr);
             System.out.println(ans);
+
+            System.out.println("~");
         }
     }
 }
@@ -22,18 +24,13 @@ public class Main {
 // } Driver Code Ends
 
 
-
-
 // User function Template for Java
 
 class Solution {
     public int getSecondLargest(int[] arr) {
-        // Initialize the first and second largest values to the smallest possible integer value
-        int firstLargest = Integer.MIN_VALUE;
-        int secondLargest = Integer.MIN_VALUE;
-
-        // Traverse the array to find the largest and second largest values
-        for (int i = 0; i < arr.length; i++) {
+      int secondLargest=Integer.MIN_VALUE;
+      int firstLargest=Integer.MIN_VALUE;
+         for (int i = 0; i < arr.length; i++) {
             if (arr[i] > firstLargest) {
                 secondLargest = firstLargest; // Update second largest before changing firstLargest
                 firstLargest = arr[i]; // Update firstLargest to the new largest value
@@ -50,4 +47,3 @@ class Solution {
         return secondLargest;
     }
 }
-
