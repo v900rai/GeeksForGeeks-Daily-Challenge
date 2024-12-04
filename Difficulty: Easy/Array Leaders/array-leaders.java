@@ -1,42 +1,34 @@
 //{ Driver Code Starts
 import java.io.*;
 import java.util.*;
-import java.util.stream.*;
 
-class Array {
-
-    public static void main(String[] args) throws IOException {
+class Geeks {
+    public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        PrintWriter ot = new PrintWriter(System.out);
-        int t = Integer.parseInt(br.readLine().trim()); // Inputting the testcases
-
-        while (t-- > 0) {
-
-            // input size of array
-            int n = Integer.parseInt(br.readLine().trim());
-            int arr[] = new int[n];
-            String inputLine[] = br.readLine().trim().split(" ");
-
-            // inserting elements in the array
-            for (int i = 0; i < n; i++) {
-                arr[i] = Integer.parseInt(inputLine[i]);
+        int t = Integer.parseInt(br.readLine()); // Number of test cases
+        for (int g = 0; g < t; g++) {
+            String[] str =
+                (br.readLine()).trim().split(" "); // Reading input as a string array
+            int arr[] = new int[str.length]; // Creating integer array from the input
+            for (int i = 0; i < str.length; i++) {
+                arr[i] = Integer.parseInt(str[i]);
             }
 
-            Solution obj = new Solution();
+            // Getting the result from the Solution class
+            List<Integer> result = new Solution().leaders(arr);
 
-            StringBuffer str = new StringBuffer();
-            ArrayList<Integer> res = new ArrayList<Integer>();
-
-            // calling leaders() function
-            res = obj.leaders(n, arr);
-
-            for (int i = 0; i < res.size(); i++) {
-                ot.print(res.get(i) + " ");
+            // Printing the result in the required format
+            if (result.isEmpty()) {
+                System.out.println("[]");
+            } else {
+                for (int i = 0; i < result.size(); i++) {
+                    if (i != 0) System.out.print(" ");
+                    System.out.print(result.get(i));
+                }
+                System.out.println();    // Ensure new line after each test case output
+                System.out.println("~"); // Ensure new line after each test case output
             }
-
-            ot.println();
         }
-        ot.close();
     }
 }
 
@@ -44,22 +36,26 @@ class Array {
 
 
 class Solution {
-    // Function to find the leaders in the array.
-    static ArrayList<Integer> leaders(int n, int arr[]) {
-        ArrayList<Integer> ans= new ArrayList<Integer>();
-        ans.add(arr[n-1]);
-        int max=ans.get(0);
-        for(int i=n-2;i>=0;i--)
-        {
-            if(max<=arr[i])
-            {
-                max=arr[i];
-                ans.add(max);
+    static ArrayList<Integer> leaders(int arr[]) {
+         ArrayList<Integer> result = new ArrayList<>();
+        int n = arr.length;
+
+        // Initialize the maximum element to the right.
+        int maxFromRight = arr[n - 1];
+        result.add(maxFromRight); // The last element is always a leader.
+
+        // Traverse the array from right to left.
+        for (int i = n - 2; i >= 0; i--) {
+            if (arr[i] >= maxFromRight) {
+                maxFromRight = arr[i];
+                result.add(maxFromRight);
             }
-            
         }
-        Collections.reverse(ans);
-        return ans;
-    
+
+        // The leaders are added in reverse order, so reverse the list.
+        Collections.reverse(result);
+        return result;
     }
+
+    
 }
