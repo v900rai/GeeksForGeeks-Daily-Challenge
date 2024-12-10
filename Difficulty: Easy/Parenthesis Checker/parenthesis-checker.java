@@ -1,30 +1,28 @@
 //{ Driver Code Starts
-import java.util.*;
 import java.io.*;
 import java.lang.*;
+import java.util.*;
 
-class Driverclass
-{
-    public static void main(String args[])
-    {
+class Driverclass {
+    public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
-        
-        //Reading total number of testcases
-        int t= sc.nextInt();
-        
-        while(t-- >0)
-        {
-            //reading the string
+
+        // Reading total number of testcases
+        int t = sc.nextInt();
+
+        while (t-- > 0) {
+            // reading the string
             String st = sc.next();
-            
-            //calling ispar method of Paranthesis class 
-            //and printing "balanced" if it returns true
-            //else printing "not balanced"
-            if(new Solution().ispar(st) == true)
-                System.out.println("balanced");
+
+            // calling ispar method of Paranthesis class
+            // and printing "balanced" if it returns true
+            // else printing "not balanced"
+            if (new Solution().isParenthesisBalanced(st) == true)
+                System.out.println("true");
             else
-                System.out.println("not balanced");
-        
+                System.out.println("false");
+
+            System.out.println("~");
         }
     }
 }
@@ -32,44 +30,27 @@ class Driverclass
 
 
 
-
-
-class Solution{
-    static boolean ispar(String str){
-        Stack <Character> st=new Stack<>();
-        int i=0;
-        int n=str.length();
-        while(i<n){
-            if(str.charAt(i)=='(' || str.charAt(i)=='{'|| str.charAt(i)=='['){
-                st.add(str.charAt(i));
-            }else {
-                char ch=str.charAt(i);
-                if(st.size()>0){
-                    if(ch==')'){
-                        if(st.peek()=='('){
-                            st.pop();
-                        }else return false;
-                    }else if(ch=='}'){
-                        if(st.peek()=='{'){
-                            st.pop();
-                        }else return false;
-                        
-                    }else {
-                        if(st.peek()=='['){
-                            st.pop();
-                        }else return false;
-                        
-                    }
-                }else {
+class Solution {
+    // Function to check if brackets are balanced or not.
+    static boolean isParenthesisBalanced(String s) {
+         StringBuilder sb = new StringBuilder();
+        for (char c : s.toCharArray()) { 
+            if (c == '(' || c == '{' || c == '[') {
+                sb.append(c);
+            }
+            else if (c == ')' || c == '}' || c == ']') {
+                if (sb.length() == 0) {
                     return false;
                 }
+                char last = sb.charAt(sb.length() - 1);
+                if ((c == ')' && last != '(') || 
+                    (c == '}' && last != '{') ||
+                    (c == ']' && last != '[')) {
+                    return false;
+                }
+                sb.setLength(sb.length() - 1);
             }
-            i++;
         }
-        
-        if(st.size()>0)return false;
-        else return true;
+        return sb.length() == 0;
     }
 }
- 
-
