@@ -40,34 +40,19 @@ class GFG {
 
 class Solution {
     public boolean isSubset(int a[], int b[]) {
-        Arrays.sort (a) ;
-        Arrays.sort (b) ;
+        Arrays.sort(a);
+        Arrays.sort(b); 
         
-        int i = 0 ;
-        int j = 0 ;
-        
-        while ( i < a.length && j < b.length){
-            
-            // if elements are equal then both arrays will move to next
-            
-            if ( a[i] == b[j]){
-                i++ ;
-                j++ ;
-            }
-            
-            // if a vali array is smaller 
-            
-            else if ( a[i] < b[j]){
-                i++ ;
-                
-            }
-            else {
-                return false ; 
-            }
+        HashSet<Integer> set = new HashSet<>();
+        for(int i: a){
+            set.add(i); 
         }
         
-        return j == b.length ;
-    
-
+        for(int i: b){
+            if(!set.contains(i)){
+                return false;  
+            }
+        }
+        return true; 
     }
 }
