@@ -32,8 +32,9 @@ System.out.println("~");
 class Solution {
 
     static int search(int arr[], int x) {
-        int n=arr.length;
-        for(int i=0; i<n; i++ ){
+        
+        int nums=arr.length;
+        for(int i=0; i<nums; i++){
             if(arr[i]==x){
                 return i;
             }
