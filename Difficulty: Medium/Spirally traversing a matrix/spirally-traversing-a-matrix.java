@@ -34,12 +34,15 @@ class Solution {
          ArrayList<Integer> ans = new ArrayList<>();
         
         int n = mat.length; // no. of rows
-        int m = mat[0].length; // no. of columns
+        int m = mat[0].length; // no. of columns 
         
         // Initialize the pointers required for traversal.
-        int top = 0, left = 0, bottom = n - 1, right = m - 1;
+        int top = 0;
+        int left = 0;
+        int bottom = n - 1;
+        int right = m - 1;
 
-        // Loop until all elements are not traversed.
+        // Loop until all elements are not traversed full reversed 
         while (top <= bottom && left <= right) {
 
             // For moving left to right
