@@ -31,13 +31,13 @@ class GFG {
 
 class Solution {
     int countFreq(int[] arr, int target) {
-        int count =0;
+        int countt =0;
         for(int i=0; i<arr.length; i++){
             if(arr[i]==target){
-                count++;
+                countt++;
             }
         }
-        return count;
+        return countt;
         
     }
 }
