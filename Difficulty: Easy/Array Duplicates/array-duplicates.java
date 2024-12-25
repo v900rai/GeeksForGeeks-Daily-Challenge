@@ -16,7 +16,7 @@ class Geeks {
 
             // Getting the result from the Solution class
             List<Integer> result = new Solution().findDuplicates(arr);
-
+            Collections.sort(result);
             // Printing the result in the required format
             if (result.isEmpty()) {
                 System.out.println("[]");
@@ -35,11 +35,13 @@ class Geeks {
 // } Driver Code Ends
 
 
+
+
 class Solution {
     public List<Integer> findDuplicates(int[] arr) {
         Arrays.sort(arr);
         int n=arr.length;
-        List<Integer> list=new ArrayList<Integer>(n);
+        List<Integer> list=new ArrayList<Integer>();
         for(int i=0; i<n-1; i++){
             if(arr[i]==arr[i+1]){
                 list.add(arr[i]);
