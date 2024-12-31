@@ -46,7 +46,7 @@ class Solution {
         // Step 1: Transpose the matrix.
         // Transpose means converting rows into columns.
          public  static void transpose(int mat[][]){
-              int n = mat.length; 
+        int n = mat.length; 
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n; j++) {
                 // Swap elements mat[i][j] and mat[j][i].
