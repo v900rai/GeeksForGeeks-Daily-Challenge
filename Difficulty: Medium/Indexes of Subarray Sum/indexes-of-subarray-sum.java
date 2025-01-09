@@ -33,30 +33,33 @@ class Main {
 
 
 
+
 class Solution {
     static ArrayList<Integer> subarraySum(int[] arr, int target) {
-        // code here
-        int startIndex = 1;
-        int endIndex = 1;
-        int accumulatedSum = 0;
-        for(int i = 0; i < arr.length; i++) {
-            accumulatedSum += arr[i];
-            if(accumulatedSum == target) {
-                ArrayList<Integer> result = new ArrayList<>();
-                result.add(startIndex);
-                result.add(endIndex);
+        ArrayList<Integer> result = new ArrayList<>();
+        int n = arr.length;
+        int currentSum = 0;
+        int start = 0;
+
+        for (int end = 0; end < n; end++) {
+            currentSum += arr[end];
+
+            // अगर currentSum टारगेट से बड़ा हो जाता है, तो शुरुआत से घटाएं
+            while (currentSum > target && start < end) {
+                currentSum -= arr[start];
+                start++;
+            }
+
+            // अगर currentSum टारगेट के बराबर हो जाए
+            if (currentSum == target) {
+                result.add(start + 1); // 1-आधारित इंडेक्सिंग के लिए
+                result.add(end + 1);
                 return result;
             }
-            if(accumulatedSum < target) {
-                endIndex++;
-                continue;
-            }
-            i = startIndex - 1;
-            startIndex = startIndex + 1;
-            endIndex = startIndex;
-            accumulatedSum = 0;
         }
-        return new ArrayList<>(List.of(-1));
+
+        // अगर कोई ऐसा सबअरे नहीं मिलता
+        result.add(-1);
+        return result;
     }
 }
-
