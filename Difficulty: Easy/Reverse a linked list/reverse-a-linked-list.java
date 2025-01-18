@@ -41,13 +41,15 @@ class GFG {
             head = ob.reverseList(head);
             printList(head);
             t--;
-        
-System.out.println("~");
-}
+
+            System.out.println("~");
+        }
     }
 }
 
 // } Driver Code Ends
+
+
 
 
 // function Template for Java
