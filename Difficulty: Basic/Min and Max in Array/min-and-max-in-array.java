@@ -32,21 +32,15 @@ class Pair<K, V> {
 Java users need to return result in Pair class
 For Example -> return new Pair(minimum,maximum)
 */
-
 class Solution {
-    public Pair<Long, Long> getMinMax(int[] arr) {
-        int min=Integer.MAX_VALUE;
-        int max=Integer.MIN_VALUE;
-        for(int i=0; i<arr.length; i++){
-            if(max<arr[i]){
-                max=arr[i];
-            }
-            if(min>arr[i]){
-                min=arr[i];
-            }
+    public Pair<Integer, Integer> getMinMax(int[] arr) {
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
+        for(int i : arr){
+            if(i < min) min = i;
+            if(i > max) max = i;
         }
-        return new Pair(min,max);
-       
+        return new Pair(min, max);
     }
 }
 
@@ -89,11 +83,11 @@ class GFG {
             for (int i : array) arr[idx++] = i;
 
             Solution ob = new Solution();
-            Pair<Long, Long> pp = ob.getMinMax(arr);
+            Pair<Integer, Integer> pp = ob.getMinMax(arr);
             System.out.println(pp.getKey() + " " + pp.getValue());
-        
-System.out.println("~");
-}
+
+            System.out.println("~");
+        }
     }
 }
 
