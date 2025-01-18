@@ -70,7 +70,7 @@ class Solution {
         if(head==null){
             return ;
         }
-        while(head!=null){
+        while(head != null){
             System.out.print(head.data+" ");
             head=head.next;
         }
