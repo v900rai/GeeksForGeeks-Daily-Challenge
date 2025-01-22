@@ -35,29 +35,20 @@ class Geeks {
 // } Driver Code Ends
 
 
-
-
 class Solution {
     static ArrayList<Integer> leaders(int arr[]) {
-         ArrayList<Integer> result = new ArrayList<>();
-        int n = arr.length;
-
-        // Initialize the maximum element to the right.
-        int maxFromRight = arr[n - 1];
-        result.add(maxFromRight); // The last element is always a leader.
-
-        // Traverse the array from right to left.
-        for (int i = n - 2; i >= 0; i--) {
-            if (arr[i] >= maxFromRight) {
-                maxFromRight = arr[i];
-                result.add(maxFromRight);
+        // code here
+        int n = arr.length-1;
+        ArrayList<Integer> ans = new ArrayList<>();
+        int max = arr[n];
+        ans.add(arr[n]);
+        for(int i=n-1; i>=0; i--) {
+            if(arr[i] >= max) {
+                max = arr[i];
+                ans.add(arr[i]);
             }
         }
-
-        // The leaders are added in reverse order, so reverse the list.
-        Collections.reverse(result);
-        return result;
+        Collections.reverse(ans);
+        return ans;
     }
-
-    
 }
