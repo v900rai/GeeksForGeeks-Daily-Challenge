@@ -28,22 +28,20 @@ public class Main {
 
 class Solution {
     public int getSecondLargest(int[] arr) {
-      int secondLargest=Integer.MIN_VALUE;
-      int firstLargest=Integer.MIN_VALUE;
-         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] > firstLargest) {
-                secondLargest = firstLargest; // Update second largest before changing firstLargest
-                firstLargest = arr[i]; // Update firstLargest to the new largest value
-            } else if (arr[i] > secondLargest && arr[i] != firstLargest) {
-                secondLargest = arr[i]; // Update second largest if it's not equal to the largest value
-            }
-        }
-
-        // Handle cases where there is no second largest
-        if (secondLargest == Integer.MIN_VALUE) {
-            return -1; // Assuming -1 indicates no second largest found
-        }
-
-        return secondLargest;
+     int first=Integer.MIN_VALUE;
+     int second=Integer.MIN_VALUE;
+     for(int i=0; i<arr.length; i++){
+         if(arr[i]>first){
+             second=first;
+             first=arr[i];
+         }
+         else if(arr[i]>second && arr[i]!=first){
+             second=arr[i];
+         }
+     }
+     if(second==Integer.MIN_VALUE){
+         return -1;
+     }
+     return second;
     }
 }
