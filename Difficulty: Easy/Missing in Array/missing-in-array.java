@@ -27,11 +27,12 @@ class Geeks {
 
 class Solution {
     int missingNumber(int arr[]) {
-        int m = arr.length + 1; // Total numbers expected (including the missing one)
-        long sum = (long)m * (m + 1) / 2; // Sum of the first m natural numbers
-        for (int i = 0; i < arr.length; i++) { // Iterate over the array
-            sum -= arr[i];
-        }
-        return (int) sum; // The remaining sum is the missing number
-    }
+       int nums=arr.length+1;
+       long sum= (long) nums*(nums+1)/2;
+       for(int i=0; i<arr.length; i++){
+           sum=sum-arr[i];
+       }
+    
+    return (int) sum;
+}
 }
