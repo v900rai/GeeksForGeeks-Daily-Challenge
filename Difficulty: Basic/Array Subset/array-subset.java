@@ -26,15 +26,17 @@ class GFG {
             }
             Solution ob = new Solution();
             if (ob.isSubset(a, b))
-                System.out.println("Yes");
+                System.out.println("true");
             else
-                System.out.println("No");
+                System.out.println("false");
             System.out.println("~");
         }
     }
 }
 
 // } Driver Code Ends
+
+
 
 
 
