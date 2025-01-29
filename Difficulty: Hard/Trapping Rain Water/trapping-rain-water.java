@@ -19,7 +19,7 @@ class Sorting {
 
 
 class Solution {
-   /* public int maxWater(int arr[]) {
+ public int maxWater(int arr[]) {
         int n=arr.length;
         int left[]=new int[n];
         int rigth[]=new int [n];
@@ -28,15 +28,15 @@ class Solution {
             left[i]=Math.max(left[i-1],arr[i]);
         }
         rigth[n-1]=arr[n-1];
-        for(int i=n-2; i>=2; i--){
+        for(int i=n-2; i>=0; i--){
             rigth[i]=Math.max(rigth[i+1],arr[i]);
         }
         int result=0;
         for(int i=0; i<n; i++){
             result+=(Math.min(left[i] ,rigth[i])-arr[i]);
         }
-        return result;*/
-        
+        return result;
+   /* 
     public int maxWater(int arr[]) {
         int n = arr.length;
         int left[] = new int[n];
@@ -60,7 +60,7 @@ class Solution {
             result += Math.min(left[i], right[i]) - arr[i];
         }
 
-        return result;
+        return result;*/
     }
 }
 
