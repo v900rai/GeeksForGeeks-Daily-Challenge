@@ -104,7 +104,7 @@ class Solution {
     // Function to remove a loop in the linked list.
     public static void removeLoop(Node head) {
         // code here
-        if (head == null || head.next == null) {
+        if (head==null && head.next==null) {
             return; // No loop possible in an empty list or a single-node list.
         }
 
