@@ -31,6 +31,8 @@ class GFG {
 // } Driver Code Ends
 
 
+
+
 // User function Template for Java
 
 class Solution {
@@ -62,7 +64,8 @@ class Solution {
         public static void reverseCols(int mat[][]) {
             int n = mat.length;
         for (int j = 0; j < n; j++) {
-            int top = 0, bottom = n - 1;
+            int top = 0;
+            int bottom = n - 1;
             while (top < bottom) {
                 // Swap elements mat[top][j] and mat[bottom][j].
                 int temp = mat[top][j];
