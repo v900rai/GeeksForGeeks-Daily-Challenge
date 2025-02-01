@@ -13,7 +13,6 @@ public class Main {
 
         while (t-- > 0) {
             // taking total number of elements
-            int k = Integer.parseInt(br.readLine());
             String line = br.readLine();
             String[] tokens = line.split(" ");
 
@@ -28,49 +27,41 @@ public class Main {
             int[] arr = new int[array.size()];
             int idx = 0;
             for (int i : array) arr[idx++] = i;
-            ArrayList<Integer> res = new Solution().max_of_subarrays(k, arr);
+            int k = Integer.parseInt(br.readLine());
+            ArrayList<Integer> res = new Solution().max_of_subarrays(arr, k);
 
             // printing the elements of the ArrayList
             for (int i = 0; i < res.size(); i++) System.out.print(res.get(i) + " ");
             System.out.println();
+            System.out.println("~");
         }
     }
 }
 // } Driver Code Ends
 
 
-// User function template 
+// User function template for JAVA
 
 class Solution {
-    // Function to find the maximum of each subarray of size k.
-    public ArrayList<Integer> max_of_subarrays(int k, int arr[]) {
-        ArrayList<Integer> result = new ArrayList<>();
-        Deque<Integer> deque = new LinkedList<>();
-
-        for (int i = 0; i < arr.length; i++) {
-            // Remove indices that are out of the current window
-            if (!deque.isEmpty() && deque.peekFirst() <= i - k) {
-                deque.pollFirst();
+    // Function to find maximum of each subarray of size k.
+    public ArrayList<Integer> max_of_subarrays(int arr[], int k) {
+        // Your code here
+        ArrayList<Integer> ans = new ArrayList<>();
+        Deque<Integer> d = new LinkedList<>();
+        
+        for(int i=0;i<arr.length;i++){
+            if(!d.isEmpty() && d.peekFirst()<i-k+1){
+                d.pollFirst();
             }
-
-            // Remove elements from deque that are smaller than the current element
-            // because they will not be the maximum in this or future windows
-            while (!deque.isEmpty() && arr[deque.peekLast()] <= arr[i]) {
-                deque.pollLast();
+            while(!d.isEmpty() && arr[d.peekLast()]<=arr[i]){
+                d.pollLast();
             }
-
-            // Add the current element's index to the deque
-            deque.offerLast(i);
-
-            // The front of the deque contains the index of the largest element
-            // in the current window, so we add it to the result
-            if (i >= k - 1) {
-                result.add(arr[deque.peekFirst()]);
+            d.addLast(i);
+            if(i>=k-1){
+                ans.add(arr[d.peekFirst()]);
             }
         }
-
-        return result;
+        
+        return ans;
     }
 }
-
-    
