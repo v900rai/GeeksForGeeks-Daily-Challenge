@@ -88,7 +88,7 @@ class Solution {
          // sort the array using the sort function
         Arrays.sort(arr);
         // traverse the array from 1 to N -1
-        for (int i = 1; i <= arr.length - 2; i += 2) {
+        for (int i = 1; i <= arr.length - 2; i = i+2) {
             // swap the current element with the next
             // element
             int temp = arr[i];
