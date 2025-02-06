@@ -49,6 +49,7 @@ class Solution {
         int count=0;
         for(int i=0; i<arr.length; i++){
             if(i==k-1){
+                // i index are start to the zero k=4 but 0,1,2,3,4 esliye k-1=3
                 count=arr[i];
             }
         }
