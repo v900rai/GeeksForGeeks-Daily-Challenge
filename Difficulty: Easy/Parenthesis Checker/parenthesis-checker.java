@@ -17,7 +17,7 @@ class Driverclass {
             // calling ispar method of Paranthesis class
             // and printing "balanced" if it returns true
             // else printing "not balanced"
-            if (new Solution().isParenthesisBalanced(st) == true)
+            if (new Solution().isBalanced(st) == true)
                 System.out.println("true");
             else
                 System.out.println("false");
@@ -29,28 +29,22 @@ class Driverclass {
 // } Driver Code Ends
 
 
-
 class Solution {
-    // Function to check if brackets are balanced or not.
-    static boolean isParenthesisBalanced(String s) {
-         StringBuilder sb = new StringBuilder();
-        for (char c : s.toCharArray()) { 
-            if (c == '(' || c == '{' || c == '[') {
-                sb.append(c);
-            }
-            else if (c == ')' || c == '}' || c == ']') {
-                if (sb.length() == 0) {
-                    return false;
-                }
-                char last = sb.charAt(sb.length() - 1);
-                if ((c == ')' && last != '(') || 
-                    (c == '}' && last != '{') ||
-                    (c == ']' && last != '[')) {
-                    return false;
-                }
-                sb.setLength(sb.length() - 1);
+    static boolean isBalanced(String s) {
+        Stack<Character> stack = new Stack<>();
+        
+        for(int i=0; i<s.length(); i++){
+            char c = s.charAt(i);
+            if(c=='(' || c=='{' || c=='[') stack.push(c);
+            else {
+                if(stack.size() ==0) return false;
+                else if(c == '}' && stack.peek() != '{')  return false;
+                else if(c == ']' && stack.peek() != '[')  return false;
+                if(c == ')' && stack.peek() != '(')  return false;
+                else stack.pop();
             }
         }
-        return sb.length() == 0;
+        if(stack.size() > 0) return false;
+        return true;
     }
 }
