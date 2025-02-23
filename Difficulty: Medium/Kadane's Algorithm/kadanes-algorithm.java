@@ -40,7 +40,9 @@ class Main {
 
 class Solution {
     int maxSubarraySum(int[] arr) {
-        int max=Integer.MIN_VALUE;
+        //int max=Integer.MIN_VALUE;
+        int max=arr[0];
+        
         int sum=0;
         for(int i=0; i<arr.length; i++){
             sum+=arr[i];
