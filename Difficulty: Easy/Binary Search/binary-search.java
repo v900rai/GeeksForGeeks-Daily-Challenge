@@ -39,25 +39,25 @@ class Solution {
         // Code Here
         
           
-        int l=0;
-        int r = arr.length-1;
+        int left=0;
+        int right= arr.length-1;
        int result = -1;
         
-        while(l<=r)
+        while(left<=right)
         {
-            int mid = l + (r-l)/2;
+            int mid = left + (right-left)/2;
             if(arr[mid] == k)
             {
               result = mid;
-              r = mid-1;
+              right = mid-1;
             }
             else if(arr[mid]>k)
             {
-                r = mid-1;
+                right = mid-1;
             }
             else
             {
-                l= mid+1;
+                left= mid+1;
             }
             
         }
