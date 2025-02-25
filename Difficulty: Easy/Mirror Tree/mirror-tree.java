@@ -146,17 +146,17 @@ class Node
 class Solution {
     // Function to convert a binary tree into its mirror tree.
     void mirror(Node node) {
-        if(node.left==null && node.right==null){
-            return ;
+        // Your code here
+        if( node == null){
+            return;
         }
-        Node temp=node.left;
-        node.left=node.right;
-        node.right=temp;
-        if(node.left!=null){
-            mirror(node.left);
-        }
-        if(node.right!=null){
-            mirror(node.right);
-        }
+
+//use temp and just swap it
+        Node temp = node.left;
+        node.left = node.right;
+        node.right = temp;
+        mirror(node.right);
+        mirror(node.left);
+         
     }
 }
