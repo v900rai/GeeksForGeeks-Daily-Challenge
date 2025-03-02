@@ -28,7 +28,7 @@ public class Main {
             int idx = 0;
             for (int i : array) arr[idx++] = i;
             int k = Integer.parseInt(br.readLine());
-            ArrayList<Integer> res = new Solution().max_of_subarrays(arr, k);
+            ArrayList<Integer> res = new Solution().maxOfSubarrays(arr, k);
 
             // printing the elements of the ArrayList
             for (int i = 0; i < res.size(); i++) System.out.print(res.get(i) + " ");
@@ -40,28 +40,30 @@ public class Main {
 // } Driver Code Ends
 
 
-// User function template for JAVA
-
 class Solution {
-    // Function to find maximum of each subarray of size k.
-    public ArrayList<Integer> max_of_subarrays(int arr[], int k) {
-        // Your code here
-        ArrayList<Integer> ans = new ArrayList<>();
-        Deque<Integer> d = new LinkedList<>();
-        
-        for(int i=0;i<arr.length;i++){
-            if(!d.isEmpty() && d.peekFirst()<i-k+1){
-                d.pollFirst();
+    public ArrayList<Integer> maxOfSubarrays(int arr[], int k) {
+        ArrayList<Integer> result = new ArrayList<>();
+        Deque<Integer> deque = new LinkedList<>();
+
+        for (int i = 0; i < arr.length; i++) {
+            // Remove elements out of the current window
+            while (!deque.isEmpty() && deque.peekFirst() < i - k + 1) {
+                deque.pollFirst();
             }
-            while(!d.isEmpty() && arr[d.peekLast()]<=arr[i]){
-                d.pollLast();
+
+            // Remove elements smaller than the current element from the back
+            while (!deque.isEmpty() && arr[deque.peekLast()] < arr[i]) {
+                deque.pollLast();
             }
-            d.addLast(i);
-            if(i>=k-1){
-                ans.add(arr[d.peekFirst()]);
+
+            // Add current element at the back of the deque
+            deque.offerLast(i);
+
+            // Store the max value for the window
+            if (i >= k - 1) {
+                result.add(arr[deque.peekFirst()]);
             }
         }
-        
-        return ans;
+        return result;
     }
 }
