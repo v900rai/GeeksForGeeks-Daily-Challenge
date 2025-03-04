@@ -7,6 +7,7 @@ import java.util.*;
 
 
 // } Driver Code Ends
+
 // User function Template for Java
 // User function Template for Java
 
@@ -32,9 +33,10 @@ class Pair<K, V> {
 Java users need to return result in Pair class
 For Example -> return new Pair(minimum,maximum)
 */
+
 class Solution {
     public Pair<Integer, Integer> getMinMax(int[] arr) {
-        int max = Integer.MIN_VALUE;
+     int max = Integer.MIN_VALUE;
         int min = Integer.MAX_VALUE;
         for(int i=0; i<arr.length; i++){
             if(arr[i] < min)
@@ -45,8 +47,10 @@ class Solution {
             
         }
         return new Pair(min, max);
+        
     }
 }
+
 
 
 //{ Driver Code Starts.
