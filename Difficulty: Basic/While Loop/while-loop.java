@@ -12,7 +12,7 @@ class Main {
 
 public static void utility(int x){
    
-    int i=0;
+   int i=0;
    while(i<=x){
        System.out.print(x-i +" ");
        i++;
