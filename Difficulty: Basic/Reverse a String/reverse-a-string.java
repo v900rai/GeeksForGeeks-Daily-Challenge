@@ -21,15 +21,26 @@ class Driver {
 // } Driver Code Ends
 
 
+
+
 // User function Template for Java
 
 class Solution {
     public static String reverseString(String s) {
         // Reverse 
-        String result = "";
-        for (int i = s.length() - 1; i >= 0; i--) {
-            result += s.charAt(i);
+        
+        char ch[] = s.toCharArray();
+        int left = 0;
+        int right = s.length() - 1;
+
+        while (left < right) {
+            char temp = ch[left];
+            ch[left] = ch[right];
+            ch[right] = temp;
+             left++;
+            right--;
         }
-        return result;
+
+        return new String(ch);
     }
 }
