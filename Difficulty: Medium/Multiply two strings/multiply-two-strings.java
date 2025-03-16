@@ -22,18 +22,31 @@ System.out.println("~");
 // } Driver Code Ends
 
 
+
+
 //User function Template for Java
+
+
 
 class Solution
 {
-    public String multiplyStrings(String s1,String s2)
+    public String multiplyStrings(String s1, String s2)
     {
-        String product = "";
-        BigInteger a = new BigInteger(s1);
-        BigInteger b = new BigInteger(s2);
-        BigInteger mul = a.multiply(b);
-        product = product + mul.toString();
-        return product;
+        // Create BigInteger objects for the input strings
+        BigInteger num1 = new BigInteger(s1);
+        BigInteger num2 = new BigInteger(s2);
         
+        // Multiply the two BigInteger numbers
+        BigInteger result = num1.multiply(num2);
+        
+        // Return the result as a string
+        return result.toString();
     }
+/*
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        String s1 = "-123456789";
+        String s2 = "987654321";
+        System.out.println(solution.multiplyStrings(s1, s2)); // Output: "-121932631112635269"
+    }*/
 }
