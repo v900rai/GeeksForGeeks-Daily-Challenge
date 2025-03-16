@@ -27,7 +27,7 @@ public class Main {
             for (int i : array) arr[idx++] = i;
 
             System.out.println(new Solution().minJumps(arr));
-            // System.out.println("~");
+            System.out.println("~");
         }
     }
 }
@@ -35,23 +35,31 @@ public class Main {
 // } Driver Code Ends
 
 
-
-
 class Solution {
-    static int minJumps(int[] arr) {
-        int n=arr.length;
-       
-       int jumps=0;
-       int maxReach=0;
-      int  curReach=0;
-       for(int i=0;i<n;i++){
-           if(i>maxReach)return -1;
-           if(i>curReach){
-               curReach=maxReach;
-               jumps++;
-           }
-           maxReach=Math.max(maxReach,i+arr[i]);
-       }
-       return jumps;
+   static int minJumps(int[] arr) {
+        // code here
+        int startIdx=0,endIdx=arr.length-1;
+        int maxIdx=0,maxSum=0;
+        int minJumps=0;
+        while(startIdx<=endIdx){
+            int left=startIdx+1,right=startIdx+arr[startIdx];
+            if(right>=endIdx) return minJumps+1;
+            maxSum=0;
+            for(int i=left;i<=right;i++){
+                int currSum=i+arr[i];
+                if(currSum>maxSum){
+                    maxIdx=i;
+                    maxSum=currSum;
+                }
+            }
+            // System.out.println(maxIdx);
+            if(arr[maxIdx]==0) return -1;
+            startIdx=maxIdx;
+            minJumps++;
+        }
+        
+        return minJumps;
     }
+
+
 }
