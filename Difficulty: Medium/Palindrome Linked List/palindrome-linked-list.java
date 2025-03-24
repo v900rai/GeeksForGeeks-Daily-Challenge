@@ -81,7 +81,8 @@ class Solution {
     // Function to check whether the linked list is a palindrome.
     boolean isPalindrome(Node head) {
         // अगर लिस्ट खाली है या केवल एक ही एलिमेंट है, तो यह palindrome ही होगी।
-        if (head == null || head.next == null) return true;
+        if (head == null || head.next == null) 
+            return true;
 
         // 1. Stack का उपयोग करके Linked List के सभी data values को store करते हैं।
         Stack<Integer> st = new Stack<Integer>();
