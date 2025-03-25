@@ -22,7 +22,7 @@ class Sorting {
 
 class Solution {
     // Function to count inversions in the array.
-       static int count = 0;
+    static int count = 0;
     public static void merge(int arr[], int s, int mid, int e) {
         int temp[] = new int[e - s + 1];
         int i = s, j = mid + 1, k = 0;
