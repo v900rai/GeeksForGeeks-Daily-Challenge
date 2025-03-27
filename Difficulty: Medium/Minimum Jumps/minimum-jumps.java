@@ -38,12 +38,16 @@ public class Main {
 class Solution {
    static int minJumps(int[] arr) {
         // code here
-        int startIdx=0,endIdx=arr.length-1;
-        int maxIdx=0,maxSum=0;
+        int startIdx=0;
+        int endIdx=arr.length-1;
+        int maxIdx=0;
+        int maxSum=0;
         int minJumps=0;
         while(startIdx<=endIdx){
-            int left=startIdx+1,right=startIdx+arr[startIdx];
-            if(right>=endIdx) return minJumps+1;
+            int left=startIdx+1;
+            int right=startIdx+arr[startIdx];
+            if(right>=endIdx)
+            return minJumps+1;
             maxSum=0;
             for(int i=left;i<=right;i++){
                 int currSum=i+arr[i];
