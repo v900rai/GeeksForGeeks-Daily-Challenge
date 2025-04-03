@@ -11,10 +11,10 @@ class Main {
 //User function Template for Java
 
 public static void difference(int n1, int n2){
-    for(int i=1; i<=10; i++){
-        int ans=(n1*i)-(n2*i);
-        System.out.print(ans+" ");
-    }
+  for(int i=1; i<=10; i++){
+      int vishal=(n1*i)-(n2*i);
+      System.out.print(vishal+" ");
+  }
    
     
 }
