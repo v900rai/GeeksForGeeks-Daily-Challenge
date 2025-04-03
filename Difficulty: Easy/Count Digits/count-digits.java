@@ -14,12 +14,12 @@ public static int countDigits(int n) {
 
     // write your code here
     // return number of digits in n
-    int count=0;
-    while(n>0){
-        n=n/10;
-        count++;
-    }
-    return count;
+   int count=0;
+   while(n>0){
+       n=n/10;
+       count++;
+   }
+   return count;
 }
 
 
