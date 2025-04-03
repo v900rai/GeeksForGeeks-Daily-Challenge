@@ -11,11 +11,11 @@ class Main {
 //User function Template for Java
 
 public static int nSum(int n){
-   int ans = 0;    
-    for(int i=1;i<=n;i++){
-        ans=ans+i;
-    }
-    return ans;
+  int sum=0;
+  for(int i=1; i<=n; i++){
+      sum=sum+i;
+  }
+  return sum;
    
 }
 
