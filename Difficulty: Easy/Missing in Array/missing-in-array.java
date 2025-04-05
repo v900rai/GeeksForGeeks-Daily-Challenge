@@ -20,19 +20,14 @@ class Geeks {
 // } Driver Code Ends
 
 
-
-
 // User function Template for Java
-
-
 class Solution {
     int missingNumber(int arr[]) {
-       int nums=arr.length+1;
-       long sum= (long) nums*(nums+1)/2;
-       for(int i=0; i<arr.length; i++){
-           sum=sum-arr[i];
-       }
-    
-    return (int) sum;
-}
+        int n=arr.length+1;
+        long sum= (long) n*(n+1)/2;
+        for(int i=0; i<arr.length; i++){
+            sum=sum-arr[i];
+        }
+        return (int) sum;
+    }
 }
