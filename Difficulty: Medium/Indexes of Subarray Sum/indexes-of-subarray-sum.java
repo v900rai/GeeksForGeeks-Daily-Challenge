@@ -44,7 +44,7 @@ class Solution {
         int start = 0;
 
         for (int end = 0; end < n; end++) {
-            currentSum += arr[end];
+            currentSum =currentSum+ arr[end];
 
             // अगर currentSum टारगेट से बड़ा हो जाता है, तो शुरुआत से घटाएं
             while (currentSum > target && start < end) {
