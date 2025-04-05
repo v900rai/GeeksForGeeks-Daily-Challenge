@@ -40,6 +40,8 @@ class GFG {
 // } Driver Code Ends
 
 
+
+
 // User function Template for Java
 
 class Solution {
@@ -49,9 +51,10 @@ class Solution {
         if(d==0)
             return ;//no rotation needed if d is 0
         
-        rotate(arr, 0,d-1);
-        rotate(arr,d,arr.length-1);
-        rotate(arr,0,arr.length-1);
+        rotate(arr, 0,d-1);//revers the first d element thik h 
+        rotate(arr,d,arr.length-1); // then revers the remaining element
+        
+        rotate(arr,0,arr.length-1);// uske bad revers the entire arrays
         
     }
     public static void rotate(int arr[], int left , int right){
