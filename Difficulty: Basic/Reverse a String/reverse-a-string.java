@@ -24,23 +24,24 @@ class Driver {
 
 
 // User function Template for Java
-
 class Solution {
     public static String reverseString(String s) {
-        // Reverse 
-        
-        char ch[] = s.toCharArray();
-        int left = 0;
-        int right = s.length() - 1;
+        // String को character array में convert किया
+        char[] chars = s.toCharArray();
 
+        int left = 0;
+        int right = chars.length - 1;
+
+        // दो pointers से characters को swap करते हुए reverse किया
         while (left < right) {
-            char temp = ch[left];
-            ch[left] = ch[right];
-            ch[right] = temp;
-             left++;
+            char temp = chars[left];
+            chars[left] = chars[right];
+            chars[right] = temp;
+            left++;
             right--;
         }
 
-        return new String(ch);
+        // final reversed string को return किया
+        return new String(chars);
     }
 }
