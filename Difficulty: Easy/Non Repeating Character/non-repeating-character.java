@@ -28,22 +28,20 @@ class Driverclass {
 // } Driver Code Ends
 
 
-// User function Template for Java
-
 class Solution {
-    // Function to find the first non-repeating character in a string.
-    static char nonRepeatingChar(String s) {
-         int[] freq = new int[26]; 
-        for (int i = 0; i < s.length(); i++) {
-            freq[s.charAt(i) - 'a']++;
+    static char nonRepeatingChar(String S) {
+        Map<Character,Integer> m = new HashMap();
+        int n = S.length();
+        for(int i=0;i<n;i++){
+            char ch = S.charAt(i);
+            m.put(ch,m.getOrDefault(ch,0)+1);
         }
-        
-        for (int i = 0; i < s.length(); i++) {
-            if (freq[s.charAt(i) - 'a'] == 1) {
-                return s.charAt(i);
+        for(int i=0;i<n;i++){
+            char ch = S.charAt(i);
+            if(m.get(ch)==1){
+                return ch;
             }
         }
-
         return '$';
     }
 }
