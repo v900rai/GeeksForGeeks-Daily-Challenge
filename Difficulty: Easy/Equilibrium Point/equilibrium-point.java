@@ -41,26 +41,13 @@ class Main {
 class Solution {
     // Function to find equilibrium point in the array.
     public static int findEquilibrium(int arr[]) {
-     
-        int LSum = 0;
-        int RSum = 0;
-        
-        for(int i = 0; i < arr.length; i++){
-            RSum += arr[i];
-        }
-        
-        for(int i = 0; i < arr.length; i++){
-            
-            RSum -= arr[i];
-            
-            if(LSum == RSum){
+         int lsum = 0, rsum = Arrays.stream(arr).sum()-arr[0];
+        for(int i = 1; i < arr.length; i++){
+            lsum += arr[i-1];
+            rsum -= arr[i];
+            if(lsum == rsum)
                 return i;
-            }
-            
-            LSum += arr[i];
         }
-        
         return -1;
-     
     }
 }
