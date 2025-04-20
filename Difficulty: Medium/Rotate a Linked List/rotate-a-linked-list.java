@@ -32,7 +32,8 @@ class Node{
 class Solution {
     public Node rotate(Node head, int k) {
         //if(head==null) return null;
-        if(head.next==null && head==null) return head;
+        if(head.next==null && head==null)
+        return head;
         
         Node temp = head;
         Node tail = null;
