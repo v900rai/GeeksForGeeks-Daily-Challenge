@@ -40,15 +40,21 @@ class GFG {
 // } Driver Code Ends
 
 
+
+
 // User function Template for Java
 
 class Solution {
     public static int kthSmallest(int[] arr, int k) {
+        // Your code here
+        
         Arrays.sort(arr);
         int count=0;
-        for(int i=0; i<arr.length; i++){
+        
+        for(int i=0; i<k; i++){
             if(i==k-1)
             count=arr[i];
+            
         }
         return count;
     }
