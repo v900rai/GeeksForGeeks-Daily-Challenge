@@ -26,7 +26,7 @@ class Solution {
         int xor1 = 0;
         int xor2 = 0;
         
-        for (int i = 0; i < n - 1; i++) {
+        for (int i = 0; i < n-1; i++) {
             xor1 ^= arr[i];
         }
         
