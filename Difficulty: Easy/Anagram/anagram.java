@@ -32,14 +32,13 @@ class Solution {
     // Function is to check whether two strings are anagram of each other or not.
     public static boolean areAnagrams(String s1, String s2) {
 
-        char[] charArray1 = s1.toCharArray();
-        char[] charArray2 = s2.toCharArray();
-
-        // Sort the character arrays
-        Arrays.sort(charArray1);
-        Arrays.sort(charArray2);
-
-        // Compare sorted arrays
-        return Arrays.equals(charArray1, charArray2);
+       char onechar [] =s1.toCharArray();
+       char twochar [] =s2.toCharArray();
+       
+       Arrays.sort(onechar);
+       Arrays.sort(twochar);
+       
+        return Arrays.equals(onechar, twochar);
+        
     }
 }
