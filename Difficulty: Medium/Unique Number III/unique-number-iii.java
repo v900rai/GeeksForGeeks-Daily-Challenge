@@ -25,20 +25,32 @@ public class Main {
 
 
 // User function Template for Java
+/*import java.util.HashMap;
+import java.util.Map;*/
 
 class Solution {
+
+    // Function to return the element which occurs only once in the array
     public int getSingle(int[] arr) {
-        int val=-1;
-        Map <Integer, Integer> map=new HashMap<>();
-        for(int i=0; i<arr.length; i++){
-            map.put(arr[i], map.getOrDefault(arr[i],0)+1);
+        int val = arr[0];  // Default value set to first element
+        
+        // HashMap banaya jisme key = element aur value = frequency
+        Map<Integer, Integer> map = new HashMap<>();
+
+        // Sabhi elements ki frequency count kar rahe hain
+        for(int i = 0; i < arr.length; i++) {
+            map.put(arr[i], map.getOrDefault(arr[i], 0)+1);
+            //map.put(arr[i], map.getOrDefault(arr[i], 0) + 1);
         }
-        for(int i=0; i<arr.length; i++){
-            if(map.get(arr[i])==1){
-                val=arr[i];
+
+        // Jo element sirf 1 baar aaya hai, usse return karenge
+        for(int i = 0; i < arr.length; i++) {
+            if(map.get(arr[i]) == 1) {
+                val = arr[i];
+                break; // mil gaya toh loop break kar dena chahiye
             }
         }
+
         return val;
-        
     }
 }
