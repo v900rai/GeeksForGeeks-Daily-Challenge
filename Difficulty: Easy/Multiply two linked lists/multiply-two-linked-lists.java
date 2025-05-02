@@ -13,6 +13,7 @@ class Node {
 
 
 // } Driver Code Ends
+
 /*Node is defined as
 class Node
 {
@@ -39,15 +40,17 @@ class Solution {
         }
 
         // Traverse the second list and form the number
-        while (second != null) {
-            num2 = (num2 * 10 + second.data) % mod;
-            second = second.next;
-        }
+      while(second !=null){
+          num2=(num2 * 10 + second.data) %mod;
+          second=second.next;
+      }
 
         // Multiply the two numbers and return the result modulo 1000000007
         return (num1 * num2) % mod;
     }
 }
+
+
 
 
 //{ Driver Code Starts.
@@ -122,7 +125,9 @@ public class GFG {
             System.out.println(res);
 
             // Free list is not necessary in Java
-        }
+        
+System.out.println("~");
+}
 
         sc.close();
     }
