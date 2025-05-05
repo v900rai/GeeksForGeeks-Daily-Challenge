@@ -33,6 +33,8 @@ public class GFG {
 
 
 
+
+
 // User function Template for Java
 class Solution {
     public int binarysearch(int[] arr, int k) {
