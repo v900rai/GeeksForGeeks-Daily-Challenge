@@ -50,17 +50,18 @@ class GFG {
 
 
 
+
 class Solution {
 
     public int peakElement(int[] arr) {
-       int num=arr[0];
-       int ans=-1;
-       for(int i=0; i<arr.length; i++){
-           if(arr[i]>=num){
-               num=arr[i];
-               ans=i;
-           }
-       }
-       return ans;
+        int max = 0;
+        int ans= 0;
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] > max){
+                max = arr[i];
+                ans = i;
+            }
+        }
+        return ans;
     }
 }
