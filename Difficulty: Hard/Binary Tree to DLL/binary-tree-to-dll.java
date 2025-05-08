@@ -120,13 +120,17 @@ class BT_To_DLL
 			    printList(ans);
                 t--;
                 System.out.println();
-	        }
+	        
+System.out.println("~");
+}
 			
 		
 	}
 }
 
 // } Driver Code Ends
+
+
 
 
 //User function Template for Java
@@ -147,36 +151,24 @@ class Node
 
 //This function should return head to the DLL
 
+class Solution
 
-
-
-
-class Solution {
-    Node prev = null;  // To keep track of the previous node in DLL
-    Node head = null;  // Head of the doubly linked list
-    
-    // Function to convert binary tree to doubly linked list and return it.
-    Node bToDLL(Node root) {
-        if (root == null) return null;
-
-        // Recursively convert the left subtree
-        bToDLL(root.left);
-        
-        // Process the current node
-        if (prev == null) {
-            // If this is the first node, it will be the head of the DLL
-            head = root;
-        } else {
-            // Connect the previous node with the current node
-            prev.right = root;
-            root.left = prev;
-        }
-        // Update prev to the current node
-        prev = root;
-
-        // Recursively convert the right subtree
-        bToDLL(root.right);
-        
-        return head;
+{
+    Node pre =null;
+    //Function to convert binary tree to doubly linked list and return it.
+    Node bToDLL(Node root)
+    {
+		if(root==null){
+		    return null;
+		}
+		Node head=bToDLL(root.left);
+		if(pre== null) head=root;
+		else{
+		    root.left=pre;
+		    pre.right=root;
+		}
+		pre=root;
+		bToDLL(root.right);
+		return head;
     }
 }
