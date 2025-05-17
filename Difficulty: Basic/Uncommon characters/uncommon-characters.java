@@ -1,58 +1,63 @@
 //{ Driver Code Starts
-//Initial Template for Java
+// Initial Template for Java
 
 import java.io.*;
 import java.util.*;
-class GfG
-{
-    public static void main(String args[])throws IOException
-        {
-            Scanner sc = new Scanner(System.in);
-            int t = sc.nextInt();
-            while(t-->0)
-                {
-                    String A = sc.next();
-                    String B = sc.next();
-                    Solution ob = new Solution();
-                    System.out.println(ob.UncommonChars(A, B));
-                }
+
+class GfG {
+    public static void main(String args[]) throws IOException {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        while (t-- > 0) {
+            String A = sc.next();
+            String B = sc.next();
+            Solution ob = new Solution();
+            System.out.println(ob.uncommonChars(A, B));
+
+            System.out.println("~");
         }
+    }
 }
 // } Driver Code Ends
 
 
-//User function Template for Java
+// User function Template for Java
 
-class Solution
-{
-    String UncommonChars(String A, String B)
-    {
-          // code here
-        int freqA[] = new int[26];
-        int freqB[] = new int[26];
+// class Solution {
+//     String uncommonChars(String s1, String s2) {
         
-        for(char ch : A.toCharArray()) {
-            freqA[ch - 'a']++;
+        
+//     }
+// }
+
+class Solution {
+    String uncommonChars(String s1, String s2) {
+        HashSet<Character> set1 = new HashSet<>();
+        HashSet<Character> set2 = new HashSet<>();
+        TreeSet<Character> tree = new TreeSet<>();
+
+        for(int i=0;i<s1.length();i++){
+            set1.add(s1.charAt(i));
+        }
+        for(int i=0;i<s2.length();i++){
+            set2.add(s2.charAt(i));
         }
         
-        for(char ch : B.toCharArray()) {
-            freqB[ch - 'a']++;
-        }
-        
-        StringBuilder uncommon = new StringBuilder();
-        
-        for(int i=0; i<26; i++) {
-            if((freqA[i]>0 && freqB[i]==0) || (freqA[i]==0 && freqB[i]>0)) {
-                uncommon.append((char) (i+'a'));
+        for(char ch:set1){
+            if(!set2.contains(ch)){
+                tree.add(ch);
             }
         }
-        if(uncommon.length() == 0) {
-            return "-1";
-        } 
+        for(char ch:set2){
+            if(!set1.contains(ch)){
+                tree.add(ch);
+            }
+        }
+        StringBuilder str = new StringBuilder();
         
-        return uncommon.toString();
+        for(char ch:tree){
+            str.append(ch);
+        }
+        return str.toString();
     }
 }
-
-
-    
