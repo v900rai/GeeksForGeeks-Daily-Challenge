@@ -27,15 +27,20 @@ System.out.println("~");
 
 
 class Solution {
-    // Function to count the number of substrings that start and end with 1.
+
+    // Function to count the number of substrings that start and end with '1'
     public static int binarySubstring(int a, String str) {
-        int countOne=0;
-        for(char ch : str.toCharArray()){
-            if(ch =='1'){
+        int countOne = 0;
+
+        // Count how many times '1' occurs in the string
+        for (char ch : str.toCharArray()) {
+            if (ch == '1') {
                 countOne++;
             }
         }
-        return (countOne*(countOne-1))/2;
-        
+
+        // The number of substrings that start and end with '1' is:
+        // nC2 = n*(n-1)/2 where n is the count of '1's
+        return (countOne * (countOne - 1)) / 2;
     }
 }
