@@ -24,11 +24,14 @@ class Implement_strstr {
 // } Driver Code Ends
 
 
+
+
 class Solution {
     // Function to locate the occurrence of the string x in the string s.
     int firstOccurence(String txt, String pat) {
        
-       int n1 = txt.length(), n2 = pat.length();
+       int n1 = txt.length();
+       int n2 = pat.length();
        
       for(int i=0;i<=n1-n2;i++){
           int j;
