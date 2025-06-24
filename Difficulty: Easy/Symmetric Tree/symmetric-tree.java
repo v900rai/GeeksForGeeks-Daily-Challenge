@@ -15,12 +15,9 @@ class Solution {
     
     public static boolean isSymmetric(Node root)
     {
-       
-        
         if(root==null ){
             return true;
-        }
-        return check(root.left, root.right);
+        }  return check(root.left, root.right);
         
     }
     public static boolean check(Node head1,Node head2){
