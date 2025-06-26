@@ -1,42 +1,17 @@
-//{ Driver Code Starts
-// Initial Template for Java
-
-import java.io.*;
+//Back-end complete function Template for Java
 import java.util.*;
 
-class GFG {
-    public static void main(String args[]) throws IOException {
-        BufferedReader read = new BufferedReader(new InputStreamReader(System.in));
-        int t = Integer.parseInt(read.readLine());
-        while (t-- > 0) {
-            int N = Integer.parseInt(read.readLine());
-            Solution ob = new Solution();
-            System.out.println(ob.evenlyDivides(N));
-
-            System.out.println("~");
+public class Solution {
+    public static void main(String args[]) {
+        // Your Code Here
+         Scanner scan = new Scanner(System.in);
+        int num = scan.nextInt(); // input taken
+        int count =0;  //count using count variable
+        while(num != 0){ // that loop is implement for count digit
+            int rem = num % 10;
+            num /= 10;
+            count++;
         }
-    }
-}
-// } Driver Code Ends
-
-
-// User function Template for Java
-class Solution {
-    static int evenlyDivides(int n) {
-        // code here
-        int m=n;
-        int count=0;
-        while(m>0){
-            int digit=m%10;
-            if(digit>0){
-                if(n%digit==0){
-                    count+=1;
-                }
-            }
-            m/=10;
-        }
-        
-        return count;
-        
+        System.out.println(count); //print count
     }
 }
