@@ -89,7 +89,8 @@ class Solution {
         while(fast!=null&&fast.next!=null){
             slow=slow.next;
             fast=fast.next.next;
-            if(slow==fast) return lengthList(slow);
+            if(slow==fast)
+            return lengthList(slow);
         }
         
         return 0;
