@@ -1,81 +1,31 @@
-//{ Driver Code Starts
-// Initial Template for Java
-
-import java.io.*;
-import java.util.*;
-
-class GFG {
-    public static void main(String args[]) throws IOException {
-        BufferedReader read = new BufferedReader(new InputStreamReader(System.in));
-        int t = Integer.parseInt(read.readLine());
-        while (t-- > 0) {
-            String S = read.readLine();
-
-            Solution ob = new Solution();
-            System.out.println(ob.longestPalindrome(S));
-            System.out.println("~");
-        }
-    }
-}
-
-// } Driver Code Ends
-
-
 
 class Solution {
     static String longestPalindrome(String s) {
-        int max=0;
-        int start=0;
-        int end=0;
+        // code here
         int n=s.length();
-       for(int i=0;i<s.length();i++)
-       {
-           //for odd
-           int prev=i-1;
-           int next=i+1;
-           while(prev>=0&&next<n)
-           {
-                if(s.charAt(prev)!=s.charAt(next))
-               {
-                   break;
-               }
-               else{
-                   int size=(next-prev)+1;
-                   if(size>max)
-                   {
-                       start=prev;
-                       end=next;
-                       max=size;
-                   }
-               }
-               
-               prev--;
-           next++;
-           }
-           //for even
-           prev=i;
-           next=i+1;
-           while(prev>=0&&next<n)
-           {
-               if(s.charAt(prev)!=s.charAt(next))
-               {
-                   break;
-               }
-               else{
-                   int size=(next-prev)+1;
-                   if(size>max)
-                   {
-                       start=prev;
-                       end=next;
-                       max=size;
-                   }
-               }
-               
-               prev--;
-           next++;
-           }
-       }
-       return s.substring(start,end+1);
+        int len, maxLen=0;
+        String ans="";
+        for(int i=0;i<n;i++){
+            for(int j=i;j<n;j++){
+                if(isPallin(s,i,j)){
+                    len=j-i+1;
+                    maxLen=Math.max(maxLen,len);
+                    if(maxLen==len && ans.length()!=len){
+                        ans=s.substring(i,j+1);
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+    
+    static boolean isPallin(String s, int start, int end){
+        while(start<=end){
+            if(s.charAt(start)!=s.charAt(end))
+            return false;
+            start++;
+            end--;
+        }
+        return true;
     }
 }
-
