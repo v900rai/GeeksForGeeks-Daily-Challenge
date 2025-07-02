@@ -64,6 +64,8 @@ class Solution {
                 // If it matches, pop the opening bracket from stack
                 else 
                     stack.pop();
+                    // remove the all elements 
+                    
             }
         }
         
