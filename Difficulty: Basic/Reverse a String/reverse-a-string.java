@@ -11,6 +11,7 @@ class Solution {
         //char[] chars = s.toCharArray();
         char [] chars=s.toCharArray();
 
+        char 
         int left = 0;
         int right = chars.length - 1;
 
