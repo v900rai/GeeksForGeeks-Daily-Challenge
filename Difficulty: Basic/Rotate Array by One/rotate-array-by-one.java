@@ -11,7 +11,8 @@ class Solution {
             arr[i] = arr[n-1];
             arr[n-1] = temp;
         }*/
-        int i = 0, j = arr.length - 1;
+        int i = 0;
+        int j = arr.length - 1;
         
         while (i < j) {
             int temp = arr[i];
