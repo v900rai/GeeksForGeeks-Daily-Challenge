@@ -1,46 +1,27 @@
-//{ Driver Code Starts
-import java.util.*;
-import java.util.Scanner;
-import java.util.Stack;
-
-class SortedStack {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int t = sc.nextInt();
-        while (t-- > 0) {
-            Stack<Integer> s = new Stack<>();
-            int n = sc.nextInt();
-            while (n-- > 0) s.push(sc.nextInt());
-            GfG g = new GfG();
-            Stack<Integer> a = g.sort(s);
-            while (!a.empty()) {
-                System.out.print(a.peek() + " ");
-                a.pop();
-            }
-            System.out.println();
-        
-System.out.println("~");
-}
-    }
-}
-// } Driver Code Ends
-
-
-
-
 /*Complete the function below*/
 class GfG {
     public Stack<Integer> sort(Stack<Integer> s) {
         // add code here.
         
-        Stack<Integer> output=new Stack<>();
+        Stack<Integer> tem=new Stack<>();
+        int len=s.size();
+        int arr[]=new int[len];
+        int i=0;
         while(!s.isEmpty()){
-        Integer temp=s.pop();
-        while(!output.isEmpty() && output.peek()>temp){
-            s.push(output.pop());
+            arr[i++]=s.pop();
+            
         }
-        output.push(temp);
-    }
-    return output;
+        
+        Arrays.sort(arr);
+        
+        for(int j=0;j<len;j++){
+            tem.push(arr[j]);
+        }
+        
+        return tem;
+        
+            
+            
+        
     }
 }
