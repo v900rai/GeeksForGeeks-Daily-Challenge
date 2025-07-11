@@ -44,14 +44,17 @@ class GFG {
 
 class Solution {
     public static int kthSmallest(int[] arr, int k) {
-        Arrays.sort(arr);
-        int count=0;
-        for(int i=0; i<k; i++){
-            if(i==k-1){
-                count=arr[i];
-            }
+     
+    
+    
+    Arrays.sort(arr);
+    int count=0;
+    for(int i=0; i<k; i++){
+        if(i==k-1){
+            count=arr[i];
         }
-        return count;
-        
+    }
+   
+    return count;
     }
 }
