@@ -17,7 +17,8 @@ class Solution {
             odd.next.next = extracted;
             extracted = odd.next;
             odd.next = newNext;
-            if (newNext != null) odd = newNext;
+            if (newNext != null)
+            odd = newNext;
         }
         odd.next = extracted;
 }
