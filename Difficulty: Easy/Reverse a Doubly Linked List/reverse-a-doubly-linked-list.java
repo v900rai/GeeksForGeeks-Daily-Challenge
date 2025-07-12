@@ -21,7 +21,8 @@ class Solution {
             curr.next = curr.prev;
             curr.prev = temp;
             
-            if(curr.prev == null) head = curr;
+            if(curr.prev == null)
+            head = curr;
             //Move to next node
             curr = curr.prev;
         }
