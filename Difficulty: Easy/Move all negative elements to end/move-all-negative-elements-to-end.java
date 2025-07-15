@@ -9,7 +9,8 @@ class Solution {
         
         for(int i=0;i<n;i++){
             if(arr[i]>=0){
-                temp[index++] = arr[i];
+                temp[index] = arr[i];
+                index++;
             }
         }
         for(int i=0;i<n;i++){
