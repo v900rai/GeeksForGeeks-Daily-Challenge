@@ -11,7 +11,7 @@ class Solution {
         
         // Base case: if the array has fewer than 2 elements
         if (arr == null || arr.length < 2) {
-            return result;
+            return result; // base case
         }
         
         // Sort the array
