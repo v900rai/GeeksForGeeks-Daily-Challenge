@@ -1,53 +1,21 @@
-//{ Driver Code Starts
-// Initial Template for Java
+import java.util.ArrayList;
 
-import java.io.*;
-import java.util.*;
-
-class GFG {
-    public static void main(String args[]) throws IOException {
-        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-        PrintWriter out = new PrintWriter(System.out);
-        int t = Integer.parseInt(in.readLine().trim());
-        while (t-- > 0) {
-            int n = Integer.parseInt(in.readLine().trim());
-            int a[][] = new int[n][n];
-            for (int i = 0; i < n; i++) {
-                String s[] = in.readLine().trim().split(" ");
-                for (int j = 0; j < n; j++) {
-                    a[i][j] = Integer.parseInt(s[j]);
-                }
-            }
-            Solution ob = new Solution();
-            ob.transpose(n, a);
-            for (int i = 0; i < n; i++) {
-                for (int j = 0; j < n; j++) {
-                    out.print(a[i][j] + " ");
-                }
-                out.println();
-            }
-
-            out.println("~");
-        }
-        out.close();
-    }
-}
-// } Driver Code Ends
-
-
-// User function Template for Java
 class Solution {
-    public void transpose(int n, int mat[][]) {
-        int arr [][] =new int [n][n];
-        for(int i=0; i<n; i++){
-            for(int j=0; j<n; j++){
-                arr[i][j]=mat[j][i];
+    public ArrayList<ArrayList<Integer>> transpose(int[][] mat) {
+        int m = mat.length;        // rows
+        int n = mat[0].length;     // columns
+        
+        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
+        
+        // Traverse column-wise
+        for (int i = 0; i < n; i++) {
+            ArrayList<Integer> row = new ArrayList<>();
+            for (int j = 0; j < m; j++) {
+                row.add(mat[j][i]);  // swapping indices
             }
+            result.add(row);
         }
-        for(int i=0; i<n; i++){
-            for(int j=0; j<n; j++){
-                mat[i][j]=arr[i][j];
-            }
-        }
+        
+        return result;
     }
 }
