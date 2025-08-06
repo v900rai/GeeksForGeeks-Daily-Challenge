@@ -1,20 +1,23 @@
 class Solution {
     public int missingNumber(int[] arr) {
-        // code here
-        Set<Integer> set=new LinkedHashSet<>();
-        Arrays.sort(arr);
-        int sum=0;
-        for(int i:arr){
-            if(i>0){
-                set.add(i);
+        Map<Integer,Integer> hp=new TreeMap<>();
+        int int_max=Integer.MAX_VALUE;
+        
+        for(int i=0;i<arr.length;i++){
+                if(arr[i]>0){
+                    hp.put(arr[i],hp.getOrDefault(arr[i],0)+1);
+                } 
+        }
+        
+        if(hp.size()==0) return 1;
+        
+        for(int i=1;i<int_max;i++){
+            if(!hp.containsKey(i)){
+                return i;
             }
         }
-        int j=1;
-        for(int i:set){
-            if(j!=i) break;
-            j++;
-        }
-        return j;
+        
+        return 1;
         
     }
 }
