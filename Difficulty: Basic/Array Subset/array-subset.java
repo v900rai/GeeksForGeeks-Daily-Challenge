@@ -3,16 +3,23 @@
 class Solution {
     public boolean isSubset(int a[], int b[]) {
         // Your code here
+      // Your code here
         Arrays.sort(a);
         Arrays.sort(b);
-        int count = 0;
-        int i = 0, j =0;
-        for(;i<a.length && j < b.length;i++){
-            if(a[i] == b[j]){
-                count++;
+        
+        int i=0;
+        int j=0;
+        
+        while(i<a.length && j<b.length){
+            if(a[i]==b[j]){
+                i++;
                 j++;
+            }else{
+                i++;
             }
         }
-        return count==b.length;
+        if(j==b.length) return true;
+        return false;
+    
     }
 }
