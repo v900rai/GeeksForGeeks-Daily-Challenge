@@ -11,7 +11,7 @@ class Solution {
         int m = mat[0].length; // no. of columns 
         
         // Initialize the pointers required for traversal.
-        int top = 0;
+        int top  = 0;
         int left = 0;
         int bottom = n - 1;
         int right = m - 1;
