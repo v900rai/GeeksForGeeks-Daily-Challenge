@@ -18,7 +18,8 @@ class Solution {
                 i++;
             }
         }
-        if(j==b.length) return true;
+        if(j==b.length) 
+        return true;
         return false;
     
     }
