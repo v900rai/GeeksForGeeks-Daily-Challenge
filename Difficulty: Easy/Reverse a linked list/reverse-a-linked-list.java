@@ -1,7 +1,3 @@
-
-
-
-
 // function Template for Java
 
 /* linked list node class:
@@ -17,16 +13,17 @@ class Node {
 */
 
 class Solution {
-    // Function to reverse a linked list.
     Node reverseList(Node head) {
-       Node current=head;
-       Node prev=null;
-       while(current!=null){
-           Node next=current.next;
-           current.next=prev;
-           prev=current;
-           current=next;
-           }
-           return prev;
+        // code here
+       Node curr  = head;
+       Node prev = null;
+       
+       while(curr != null){
+           Node temp = curr.next;
+           curr.next=prev;
+           prev=curr;
+           curr=temp;
+       }
+       return prev;
     }
 }
