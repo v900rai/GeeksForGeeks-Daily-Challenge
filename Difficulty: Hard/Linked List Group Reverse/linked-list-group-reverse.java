@@ -18,7 +18,8 @@ class Node
 
 class Solution {
     public static Node reverseKGroup(Node head, int k) {
-             Node curr=head, prev=null;
+       Node curr=head;
+       Node prev=null;
 
         while(curr!=null){
 
@@ -60,7 +61,8 @@ class Solution {
 
         for(int i=0;i<n-1;i++){
 
-            if(curr==null) return null;
+            if(curr==null) 
+            return null;
 
             curr=curr.next;
 
@@ -72,11 +74,11 @@ class Solution {
 
     public static Node reverseList(Node curr){
 
-        Node prev=null,next=null;
+        Node prev=null;
 
         while(curr!=null){
 
-            next=curr.next;
+          Node  next=curr.next;
 
             curr.next=prev;
 
