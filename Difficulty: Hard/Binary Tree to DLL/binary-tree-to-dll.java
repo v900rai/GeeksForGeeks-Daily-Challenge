@@ -1,43 +1,42 @@
+/*
+class Node {
+    int data;
+    Node left, right;
 
-
-
-
-//User function Template for Java
-
-/* class Node
-class Node
-{
-	Node left, right;
-	int data;
-	
-	Node(int d)
-	{
-		data = d;
-		left = right = null;
-	}
-	
-}*/
-
-//This function should return head to the DLL
-
-class Solution
-
-{
-    Node pre =null;
-    //Function to convert binary tree to doubly linked list and return it.
-    Node bToDLL(Node root)
-    {
-		if(root==null){
-		    return null;
-		}
-		Node head=bToDLL(root.left);
-		if(pre== null) head=root;
-		else{
-		    root.left=pre;
-		    pre.right=root;
-		}
-		pre=root;
-		bToDLL(root.right);
-		return head;
+    Node() {
+        this.data = 0;
+        this.left = this.right = null;
     }
+
+    Node(int data) {
+        this.data = data;
+        this.left = this.right = null;
+    }
+}
+*/
+class Solution {
+    // Function to convert binary tree to doubly linked list and return it.
+    
+    Node prev=null;
+    Node bToDLL(Node root) {
+        //  Your code here
+        if(root == null)
+        return root;
+        
+        Node head=bToDLL(root.left);
+        
+        if(prev==null)
+        {
+            head=root;
+        }
+        else{
+            root.left=prev;
+            prev.right=root;
+        }
+        prev=root;
+        bToDLL(root.right);
+        
+    
+    return head;
+}
 }
