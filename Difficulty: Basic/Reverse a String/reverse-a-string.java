@@ -9,11 +9,12 @@ class Solution {
     public static String reverseString(String s) {
         // String को character array में convert किया
         //char[] chars = s.toCharArray();
-        char [] chars=s.toCharArray();
+       
 
-        char 
-        int left = 0;
-        int right = chars.length - 1;
+       
+        char [] chars=s.toCharArray();
+        int left =0;
+        int right =chars.length-1;
 
         // दो pointers से characters को swap करते हुए reverse किया
         while (left < right) {
