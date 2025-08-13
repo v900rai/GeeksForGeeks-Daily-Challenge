@@ -1,53 +1,30 @@
-//{ Driver Code Starts
-// Initial Template for Java
-import java.io.*;
-import java.util.*;
-
-class Main {
-
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int t = Integer.parseInt(br.readLine().trim()); // Inputting the testcases
-        while (t-- > 0) {
-
-            String line = br.readLine();
-            String[] tokens = line.split(" ");
-
-            // Create an ArrayList to store the integers
-            ArrayList<Integer> array = new ArrayList<>();
-
-            // Parse the tokens into integers and add to the array
-            for (String token : tokens) {
-                array.add(Integer.parseInt(
-                    token)); // Use Integer.parseInt to parse int values
-            }
-
-            int[] arr = new int[array.size()];
-            int idx = 0;
-            for (int i : array) arr[idx++] = i;
-
-            Solution obj = new Solution();
-
-            // calling equilibriumPoint() function
-            System.out.println(obj.findEquilibrium(arr));
-            System.out.println("~");
-        }
-    }
-}
-
-// } Driver Code Ends
-
-
 class Solution {
     // Function to find equilibrium point in the array.
     public static int findEquilibrium(int arr[]) {
-         int lsum = 0, rsum = Arrays.stream(arr).sum()-arr[0];
-        for(int i = 1; i < arr.length; i++){
-            lsum += arr[i-1];
-            rsum -= arr[i];
-            if(lsum == rsum)
-                return i;
+        // code here
+        int totalsum=0;
+        int left_sum =0;
+        int right_sum=0;
+        
+    // taking an totalsum variable to save the sum of the number 
+        for(int i =0; i<arr.length; i++){
+             totalsum +=arr[i];
         }
-        return -1;
+    // taking an variable rightsum to store value of the right part of an array
+    // give the right sum 
+        for(int i=0; i<arr.length; i++){
+        right_sum = totalsum-left_sum-arr[i];
+        
+    //check the value of right equal to left or not    
+        if (left_sum==right_sum){
+            return i;
+        }
+    // most imp part store the value of the left part to check the iteration
+    //the line 16 directly praportional toh line 24
+         left_sum +=arr[i];
+        }
+          return -1;
+        }
     }
-}
+
+ 
