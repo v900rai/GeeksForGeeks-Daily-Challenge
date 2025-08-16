@@ -1,52 +1,22 @@
-//{ Driver Code Starts
-// Initial Template for Java
-import java.io.*;
-import java.util.*;
-
-class GFG {
-    public static void main(String args[]) throws IOException {
-        BufferedReader read = new BufferedReader(new InputStreamReader(System.in));
-        int t = Integer.parseInt(read.readLine());
-
-        while (t-- > 0) {
-            int n = Integer.parseInt(read.readLine());
-
-            Solution ob = new Solution();
-
-            System.out.println(ob.countAndSay(n));
-
-            System.out.println("~");
-        }
-    }
-}
-// } Driver Code Ends
-
-
 class Solution {
     public String countAndSay(int n) {
         // code here
-        if (n <= 0) return "";
-        String result = "1";
-
-        for (int i = 1; i < n; i++) {
-            StringBuilder current = new StringBuilder();
-            int count = 1;
-
-            // Read the previous result and generate the next
-            for (int j = 1; j < result.length(); j++) {
-                if (result.charAt(j) == result.charAt(j - 1)) {
-                    count++;
-                } else {
-                    current.append(count).append(result.charAt(j - 1));
-                    count = 1;
+        StringBuilder sb = new StringBuilder("1");
+        for(int s=1; s<n; s++){
+            int i=0, j=0;
+            StringBuilder temp = new StringBuilder("");
+            while(j < sb.length()){
+                if(sb.charAt(i) != sb.charAt(j)){
+                    temp.append(j-i);
+                    temp.append(sb.charAt(i));
+                    i = j;
                 }
+                j++;
             }
-
-            // Append the last counted group
-            current.append(count).append(result.charAt(result.length() - 1));
-            result = current.toString();
+            temp.append(j-i);
+            temp.append(sb.charAt(i));
+            sb = temp;
         }
-
-        return result;
+        return sb.toString();
     }
 }
