@@ -8,6 +8,7 @@ class Solution {
             if(c=='1'){
                 count++;
             }
+            
         }
         return count;
     }
