@@ -6,7 +6,8 @@ class Solution {
          
          int sum=arr[0];
          set.add(sum);
-         if(sum==0) return true;
+         if(sum==0) 
+         return true;
          
          for(int i=1; i<arr.length; i++){
              
