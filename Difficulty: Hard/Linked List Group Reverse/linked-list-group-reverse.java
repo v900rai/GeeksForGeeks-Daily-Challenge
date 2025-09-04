@@ -57,19 +57,29 @@ class Solution {
 
     }
 
+    // public static Node findNth(Node curr, int n){
+
+    //     for(int i=0;i<n-1;i++){
+
+    //         if(curr==null) 
+    //         return null;
+
+    //         curr=curr.next;
+
+    //     }
+
+    //     return curr;
+
+    // }
     public static Node findNth(Node curr, int n){
-
-        for(int i=0;i<n-1;i++){
-
-            if(curr==null) 
-            return null;
-
-            curr=curr.next;
-
+        for(int i=0; i<n-1; i++){
+            if(curr ==null)
+                return null;
+                
+                curr =curr.next;
+            
         }
-
         return curr;
-
     }
 
     public static Node reverseList(Node curr){
@@ -78,7 +88,7 @@ class Solution {
 
         while(curr!=null){
 
-          Node  next=curr.next;
+          Node next=curr.next;
 
             curr.next=prev;
 
