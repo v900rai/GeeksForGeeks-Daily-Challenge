@@ -1,44 +1,37 @@
-
-
-// User function Template for Java
-/*class Node
-{
+/*
+class Node {
     int data;
     Node next;
 
-    Node(int key)
-    {
-        data = key;
+    Node(int x) {
+        data = x;
         next = null;
     }
 }
 */
 
-// arr is an array of Nodes of the heads of linked lists
-
 class Solution {
-    // Function to merge K sorted linked list.
-    // Function to merge K sorted linked list.
-    Node mergeKLists(List<Node> arr) {
-        // Add your code here.
-        List<Node>ans=new ArrayList<>();
-        for(int i=0;i<arr.size();i++)
-        {
-            Node j=arr.get(i);
-            while(j!=null)
-            {
-                ans.add(j);
-                j=j.next;
-            }
-        }
-        Collections.sort(ans,(a,b)->(a.data-b.data));
-        Node res=new Node(-1);
-        Node temp=res;
-        for(Node i:ans)
-        {
-            temp.next=i;
-            temp=temp.next;
-        }
-        return res.next;
+     Node mergeKLists(Node[] arr) {
+        // code here
+       List<Integer> li=new ArrayList<>();
+       for(Node head:arr)
+       {
+           Node curr= head;
+           while(curr!=null)
+           {
+               li.add(curr.data);
+               curr=curr.next;
+           }
+       }
+       Collections.sort(li);
+       Node dummy= new Node(0);
+       Node tail=dummy;
+       for(Integer val:li)
+       {
+           tail.next=new Node(val);
+           tail=tail.next;
+       }
+       return dummy.next;
     }
+
 }
