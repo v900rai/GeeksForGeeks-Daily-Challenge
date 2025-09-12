@@ -1,25 +1,18 @@
-// User function Template for Java
-
 class Solution {
-    int getMinDiff(int[] arr, int k) {
+public int getMinDiff(int[] arr, int k) {
         // code here
-        int n=arr.length;
-        if(n==1) return 0;
         Arrays.sort(arr);
-        int min=0,max=0;
-        int diff=arr[n-1]-arr[0];
-        
-        for(int i=1;i<n;i++)
-        {
-            if(arr[i]-k<0)
-            {
-                continue;
+        int n=arr.length;
+        int ans=arr[n-1]-arr[0];
+        for(int i=n-2;i>=0;i--){
+            if(arr[i+1]<k){
+                break;
             }
-            max=Math.max(arr[i-1]+k ,arr[n-1]-k);
-            min=Math.min(arr[0]+k , arr[i]-k);
-            diff=Math.min(diff,max-min);
+            int min=Math.min(arr[i+1]-k,arr[0]+k);
+            int max=Math.max(arr[i]+k,arr[n-1]-k);
+            ans=Math.min(ans,max-min);
         }
-        
-        return diff;
+        return ans;
     }
+
 }
