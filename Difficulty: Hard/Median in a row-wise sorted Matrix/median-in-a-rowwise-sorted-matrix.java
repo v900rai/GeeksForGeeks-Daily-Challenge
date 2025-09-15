@@ -2,8 +2,6 @@
 
 class Solution {
    int median(int mat[][]) {
-        // code here
-        // traversing matrix with O(n*m)
         int row = mat.length;
         int col = mat[0].length;
         ArrayList<Integer> list = new ArrayList<>();
