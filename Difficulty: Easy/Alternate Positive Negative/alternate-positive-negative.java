@@ -20,7 +20,8 @@ class Solution {
         }
         
         // Alternately merge positive and negative numbers into the original array
-        int posIndex = 0, negIndex = 0;
+        int posIndex = 0;
+        int negIndex = 0;
         int i = 0;
         
         while (posIndex < positive.size() && negIndex < negative.size()) {
