@@ -1,100 +1,30 @@
 class Solution {
+ public ArrayList<Integer> nextGreater(int[] arr) {  
+   
+        if (arr == null || arr.length == 0) return new ArrayList<>();
 
-    public ArrayList<Integer> nextLargerElement(int[] arr) {
+        int n = arr.length;
+        int[] res = new int[n];
+        Arrays.fill(res, -1);
 
-        // code here
+        Deque<Integer> stack = new ArrayDeque<>(); 
 
-        Stack<Integer> st = new Stack<>();
+       
+        for (int i = 0; i < 2 * n; i++) {
+            int val = arr[i % n];
 
-        int n = arr.length ;
-
-        ArrayList<Integer> res = new ArrayList<>();
-
-        int ans[] = new int[n];
-
-        
-
-        for(int i = n-1 ; i>=0 ; i--){
-
-            
-
-            while(!st.isEmpty() && st.peek() <= arr[i]){
-
-                st.pop();
-
+            while (!stack.isEmpty() && arr[stack.peek()] < val) {
+                res[stack.pop()] = val;
             }
 
             
-
-            if(st.isEmpty()){
-
-              ans[i] = -1;
-
-               
-
-            }
-
-            
-
-            else{
-
-                ans[i] = st.peek();
-
-                
-
-            }
-
-            
-
-             st.push(arr[i]);
-
+            if (i < n) stack.push(i);
         }
 
-        
-
-        for(int i = n-1 ; i>=0 ; i--){
-
-            
-
-            while(!st.isEmpty() && st.peek() <= arr[i]){
-
-                st.pop();
-
-            }
-
-            
-
-            if(st.isEmpty())
-
-            break;
-
-            
-
-           if(ans[i] == -1)
-
-            ans[i] = st.peek();
-
-            
-
-        }
-
-        
-
-        for(int i = 0 ; i<n ;i++)
-
-        res.add(ans[i]);
-
-        
-
-        return res;
-
-        
-
-        
-
-        
+        ArrayList<Integer> ans = new ArrayList<>(n);
+        for (int x : res) ans.add(x);
+        return ans;
+    
 
     }
-
 }
-
