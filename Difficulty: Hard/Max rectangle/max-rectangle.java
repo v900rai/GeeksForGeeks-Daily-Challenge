@@ -1,8 +1,6 @@
-/*Complete the function given below*/
 class Solution {
-   
     static int maxArea(int mat[][]) {
-        
+        // code here
         for(int j = 0 ; j < mat[0].length ; j++){
             
             for(int i = 1 ; i < mat.length ; i++){
@@ -64,5 +62,7 @@ class Solution {
         }
         
         return max;
+        
     }
 }
+
