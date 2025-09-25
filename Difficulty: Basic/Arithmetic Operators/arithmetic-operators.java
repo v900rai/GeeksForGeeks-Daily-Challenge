@@ -1,45 +1,20 @@
-//{ Driver Code Starts
-// Initial Template for Java
-
-import java.util.Scanner;
-
-class Main {
-
-    
-// } Driver Code Ends
-
-// User function Template for Java
-
-public static void operations(int x, int y) {
-    // Perform addition x+y below
-    int p = x+y;
-        // Perform subtraction x-y below
-        int q =x-y;
-            // Perform multiplication x*y below
-        int r =x*y;
-            // Perform division x/y below
-        int s =x/y;
-            // Perform modulo operation x%y below
-        int t =x%y;
-
-            // The below code prints the output. Don't change it!
-        System.out.println(p + " " + q + " " + r + " " + s + " " + t);
-}
-
-
-//{ Driver Code Starts.
-
-    public static void main(String[] args) {
-        Scanner scn = new Scanner(System.in);
-        int t = scn.nextInt();
-        while (t-- > 0) {
-            int x = scn.nextInt();
-            int y = scn.nextInt();
-            operations(x, y);
-
-            System.out.println("~");
-        }
-        scn.close();
+import java.util.*;
+class Solution {
+    public int[] computeOperations(int x, int y) {
+        // code here
+   int p = x + y; // Addition
+   int q = x - y; // Subtraction
+   int r = x * y; // Multiplication
+   int s = x / y; // Division
+   int t = x % y; // Modulo
+       
+       return new int[]{p,q,r,s,t};
+        
+    }
+    public static void main(String [] args){
+        Solution obj = new Solution();
+        int[] result = obj.computeOperations(1,2);
+        System.out.println(Arrays.toString(result));
     }
 }
-// } Driver Code Ends
+
