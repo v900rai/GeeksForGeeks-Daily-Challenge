@@ -10,17 +10,30 @@ class Node {
     }
 }
 */
+
 class Solution {
-    private int height(Node root,int[] ans){
-        if(root==null)return 0;
-        int left=height(root.left,ans);
-        int right=height(root.right,ans);
-        ans[0]=Math.max(ans[0],left+right);
-        return Math.max(left,right)+1;
+    // RADHE RADHE 
+    public static int height(Node root , int[] diameter){
+        if(root==null){
+            return 0 ; 
+        }
+        
+        int lh = height(root.left,diameter);
+        int rh = height(root.right,diameter);
+        
+        diameter[0] = Math.max(diameter[0],lh+rh);
+        
+        return Math.max(lh,rh)+1 ; 
+        
     }
     int diameter(Node root) {
-        int maxDiameter[]=new int[1];
-        height(root,maxDiameter);
-        return maxDiameter[0];
+        // Your code here
+        
+        int[] diameter = new int[1];
+        
+        height(root,diameter);
+        
+        return diameter[0] ; 
     }
 }
+
