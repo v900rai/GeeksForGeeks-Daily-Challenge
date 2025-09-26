@@ -1,32 +1,28 @@
-import java.util.*;
+class Solution {
+    static boolean prime(int n){
+        for(int i=2; i<n; i++){
 
-public class Solution {
-    public static void main(String args[]) {
-        // Your Code Here
-        Scanner sc = new Scanner ( System.in );
-        int n = sc.nextInt();
-        System.out.println(nextPrime(n));
-    }
-    public static boolean isPrime( int n ){
-        if ( n <= 1 ) return false;
-        if ( n <= 3 ) return true;
-        
-        for ( int i = 2 ; i*i <= n ; i++ ){
-            if ( n % i == 0 ) 
-            return false;
+
+            if(n%i==0){
+
+
+                return false;
+            }
         }
         return true;
     }
-    public static int nextPrime ( int n ) {
-        if ( n <= 1 ) return 2;
-        int number = n;
-        boolean found = false;
-        while ( !found ){
-            number++;
-            if ( isPrime( number ) ){
-                found = true;
+    
+    public static int nextPrime(int n) {
+        int i = n;
+        for(i=n+1;i<=500;i++){
+            boolean isPrime = false;
+            isPrime = prime(i);
+            if(isPrime){
+                return i;
             }
+            
         }
-        return number;
+        return i;
     }
 }
+
