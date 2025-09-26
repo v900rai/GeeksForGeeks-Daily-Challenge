@@ -1,13 +1,9 @@
 class Solution {
-    public int dayBefore(int d, int n) {
-        // code here
-        int index = d;
-        for ( int i = 0 ; i < n ; i++){
-            index--;
-            if ( index < 0 ){
-                index = 6;
-            }
-        }
-        return index;
+    public static int nthDay(int d, int n) {
+        // write your code here
+        int effectiveN = n%7;
+        int result = (d-effectiveN+7) % 7;
+        return result;
     }
 }
+
