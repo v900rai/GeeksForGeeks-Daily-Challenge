@@ -1,15 +1,23 @@
-class Solution {
 
-    public static int find_greatest_number(int a, int b, int c) {
-        // Write your code here..
-        if(a>=b&&a>=c){
-            return a;
+
+import java.util.*;
+
+public class Solution {
+    public static void main(String args[]) {
+        // Your code here
+        Scanner s =new Scanner(System.in);
+        int a=s.nextInt();
+        int b=s.nextInt();
+        int c=s.nextInt();
+        
+        if(a>b&&a>c){
+            System.out.println(a);
         }
-        else if(b>=a&&b>=c){
-            return b;
+        else if(b>c&&b>a){
+            System.out.println(b);
         }
         else{
-            return c;
+            System.out.println(c);
         }
     }
 }
