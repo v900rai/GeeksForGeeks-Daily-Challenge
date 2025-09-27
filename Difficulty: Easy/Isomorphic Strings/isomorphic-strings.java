@@ -1,34 +1,3 @@
-//{ Driver Code Starts
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.*;
-import java.util.Arrays;
-
-public class Driver {
-
-    public static void main(String[] args) throws IOException {
-
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int tc = Integer.parseInt(br.readLine());
-        while (tc-- > 0) {
-            String s1 = br.readLine();
-            String s2 = br.readLine();
-
-            Solution obj = new Solution();
-
-            boolean a = obj.areIsomorphic(s1, s2);
-            if (a)
-                System.out.println("true");
-            else
-                System.out.println("false");
-
-            System.out.println("~");
-        }
-    }
-}
-
-// } Driver Code Ends
 
 
 class Solution {
