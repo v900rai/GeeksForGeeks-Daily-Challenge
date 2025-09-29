@@ -14,11 +14,15 @@ class Solution {
         // Your code here
         Node slow = head;
         Node fast = head;
-        for(int i=1; i<=k; i++){
-            if(fast == null)
-                return -1;
-             fast=fast.next;
-        }
+;
+             
+             for(int i=1; i<=k; i++){
+                 if(fast == null){
+                     return -1;
+                 }
+                 fast = fast.next;
+             }
+        
         while(fast !=null){
             slow = slow.next;
             fast =fast.next;
