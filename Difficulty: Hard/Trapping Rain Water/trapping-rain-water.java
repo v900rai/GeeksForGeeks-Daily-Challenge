@@ -8,6 +8,7 @@ class Solution {
         int left[]=new int[n];
         int rigth[]=new int [n];
         
+        // left m dal zero
         
          left[0]=arr[0];
         for(int i=1; i<n; i++){
