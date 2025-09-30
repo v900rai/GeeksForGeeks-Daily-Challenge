@@ -23,7 +23,7 @@ class Solution {
                 }
             }
         }
-        // No such triplet found
+        // No such triplet found all
         return false;
     }
 }
