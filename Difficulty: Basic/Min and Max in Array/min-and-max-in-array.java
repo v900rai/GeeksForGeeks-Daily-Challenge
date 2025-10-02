@@ -1,42 +1,32 @@
-// User function Template for Java
-// User function Template for Java
-
-/*
-class Pair<K, V> {
-    private final K key;
-    private final V value;
-
-    public Pair(K key, V value) {
-        this.key = key;
-        this.value = value;
-    }
-
-    public K getKey() {
-        return key;
-    }
-
-    public V getValue() {
-        return value;
-    }
-}
-
-Java users need to return result in Pair class
-For Example -> return new Pair(minimum,maximum)
-*/
+import java.util.ArrayList;
 
 class Solution {
-    public Pair<Integer, Integer> getMinMax(int[] arr) {
-        // Code Here
-        int max=Integer.MIN_VALUE;
-        int min=Integer.MAX_VALUE;
-        for(int i=0; i<arr.length; i++){
-            if(arr[i]<min){
-                min=arr[i];
+    public ArrayList<Integer> getMinMax(int[] arr) {
+        ArrayList<Integer> result = new ArrayList<>();
+        
+        // Edge case: agar array empty ho
+        if(arr == null || arr.length == 0){
+            return result; // empty list return karenge
+        }
+        
+        // Initial min and max ko first element se set karte hain
+        int min = arr[0];
+        int max = arr[0];
+        
+        // Array traverse karke min aur max nikalenge
+        for(int i = 1; i < arr.length; i++){
+            if(arr[i] < min){
+                min = arr[i];
             }
-            if(arr[i]>max){
-                max=arr[i];
+            if(arr[i] > max){
+                max = arr[i];
             }
         }
-        return new Pair(min, max);
+        
+        // result list me min aur max add karte hain
+        result.add(min);
+        result.add(max);
+        
+        return result;
     }
 }
