@@ -5,8 +5,8 @@ class Solution {
      // store the length
         int n=arr.length;
         
-        int left[]=new int[n];
-        int rigth[]=new int [n];
+        int left[] = new int[n];
+        int rigth[] = new int [n];
         
         // left m dal zero
         
