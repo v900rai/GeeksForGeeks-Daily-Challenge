@@ -1,21 +1,13 @@
 class Solution {
-    public static int towerOfHanoi(int n, int sou, int aux, int des) {
-        if(n==0){
-            return 0;
-        }
-        if(n==1){
-            return 1;
-        }
-        int moves=towerOfHanoi(n-1,sou,des,aux);
-        moves+=1;
-        moves+=towerOfHanoi(n-1,aux,sou,des);
-    
-        return moves;
-    }
-    public static void main(String[] args){
+    public int towerOfHanoi(int n, int from, int to, int aux) {
+        // code here
+        int steps =0 ; 
+        if(n==1) { return 1 ; } 
+        steps = towerOfHanoi(n-1 , from , aux , to) ; 
         
-        Scanner sc=new Scanner(System.in);
-        int n=sc.nextInt();
-        int totalMoves=towerOfHanoi(n,1,2,3);
+        steps++ ; 
+        
+        steps+= towerOfHanoi(n-1 ,  aux , to , from ) ;
+        return steps ; 
     }
 }
