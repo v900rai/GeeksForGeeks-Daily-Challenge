@@ -93,27 +93,27 @@ class Solution {
         Arrays.sort(arr);
         ArrayList<ArrayList<Integer>> res=new ArrayList<>();
         HashSet<String> h=new HashSet<>();
-        int l=0;
-        int r=arr.length-1;
+        int left=0;
+        int right=arr.length-1;
         
-        while(l<r){
-            int sum=arr[l]+arr[r];
+        while(left<right){
+            int sum=arr[left]+arr[right];
             if(sum<0){
-                l++;
+                left++;
             }else if(sum>0){
-                r--;
+                right--;
             }else{
-                String s=arr[l]+","+arr[r];
+                String s=arr[left]+","+arr[right];
                 if(!h.contains(s)){
                 
                     ArrayList<Integer> t=new ArrayList<>();
-                    t.add(arr[l]);
-                    t.add(arr[r]);
+                    t.add(arr[left]);
+                    t.add(arr[right]);
                     res.add(t);
                     h.add(s);
                 }
-                r--;
-                l++;
+                right--;
+                left++;
             }
         }
         return res;
