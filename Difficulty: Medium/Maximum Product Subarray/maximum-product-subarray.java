@@ -16,6 +16,7 @@ class Solution {
                 currentMin = temp;
             }
             
+            // it is a very good 
             currentMax = Math.max(arr[i], currentMax * arr[i]);
             currentMin = Math.min(arr[i], currentMin * arr[i]);
             
