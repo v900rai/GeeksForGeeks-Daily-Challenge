@@ -9,7 +9,8 @@ class Solution {
                 } 
         }
         
-        if(hp.size()==0) return 1;
+        if(hp.size()==0)
+        return 1;
         
         for(int i=1;i<int_max;i++){
             if(!hp.containsKey(i)){
