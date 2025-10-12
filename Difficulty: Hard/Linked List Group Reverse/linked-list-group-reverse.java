@@ -29,7 +29,8 @@ class Solution {
 
               Node rev= reverseList(curr);
 
-              if(prev!=null) prev.next=rev;
+              if(prev!=null)
+              prev.next=rev;
 
               else return rev;
 
