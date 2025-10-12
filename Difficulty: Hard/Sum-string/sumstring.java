@@ -1,46 +1,43 @@
-
-
 class Solution {
     public boolean isSumString(String s) {
-        int n = s.length();
-        
-        // Try all combinations for the first two numbers
-        for (int i = 1; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                String s1 = s.substring(0, i);
-                String s2 = s.substring(i, j);
-                
-                // Skip if numbers have leading zeros (but allow "0")
-                if ((s1.length() > 1 && s1.charAt(0) == '0') || 
-                    (s2.length() > 1 && s2.charAt(0) == '0')) continue;
-                
-                if (isValid(s1, s2, s.substring(j))) return true;
+        int ans=0;
+        int n=s.length();
+        int[]a=new int[n];
+        if(n<3)return false;
+        for(int i=0;i<n;i++){
+            char ch=s.charAt(i);
+            a[i]=ch-48;
+        }
+        int m=n/3;
+        int pre=0;
+        int cnt1=0;
+        for(int i=0;i<n;i++){
+             pre=pre*10+a[i];
+            cnt1++;
+            int next=0;
+            int cnt2=0;
+            for(int j=i+1;j<n;j++){
+                if(next==0&&a[j]==0)break;
+                cnt2++;
+                next=next*10+a[j];
+                int nnext=0;
+                int cnt3=0;
+                for(int k=j+1;k<n;k++){
+                    if(nnext==0&&a[k]==0)break;
+                    nnext=nnext*10+a[k];
+                    if(pre+next==nnext){
+                        ans++;
+                        pre=next;
+                        next=nnext;
+                        nnext=0;
+                        if(k==n-1)return true;
+                    }
+                    else if(nnext>next+pre)break;
+                }
             }
         }
         return false;
     }
-
-    private boolean isValid(String num1, String num2, String remaining) {
-        if (remaining.length() == 0) return true;
-
-        String sum = addStrings(num1, num2);
-        if (!remaining.startsWith(sum)) return false;
-
-        return isValid(num2, sum, remaining.substring(sum.length()));
-    }
-
-    // Helper to add two numbers represented as strings
-    private String addStrings(String num1, String num2) {
-        StringBuilder sb = new StringBuilder();
-        int carry = 0, i = num1.length() - 1, j = num2.length() - 1;
-
-        while (i >= 0 || j >= 0 || carry > 0) {
-            int d1 = i >= 0 ? num1.charAt(i--) - '0' : 0;
-            int d2 = j >= 0 ? num2.charAt(j--) - '0' : 0;
-            int sum = d1 + d2 + carry;
-            sb.append(sum % 10);
-            carry = sum / 10;
-        }
-        return sb.reverse().toString();
-    }
 }
+
+ 
