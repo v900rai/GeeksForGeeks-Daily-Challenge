@@ -14,12 +14,13 @@ class Solution {
         int max = arr[0];
         
         // Array traverse karke min aur max nikalenge
-        for(int i = 1; i < arr.length; i++){
+        
+        for(int i=1; i<arr.length; i++){
             if(arr[i] < min){
                 min = arr[i];
             }
-            if(arr[i] > max){
-                max = arr[i];
+            if(arr[i]>max){
+                max=arr[i];
             }
         }
         
