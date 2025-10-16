@@ -14,7 +14,7 @@ class Solution {
         // Your code here
         Node slow = head;
         Node fast = head;
-;
+
              
              for(int i=1; i<=k; i++){
                  if(fast == null){
