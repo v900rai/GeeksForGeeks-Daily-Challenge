@@ -14,15 +14,16 @@ class Node
 class Solution {
     public int GetNth(Node head, int index) {
         // Code here
-        Node current=head;
         int count=0;
-        while(current !=null){
+        Node temp=head;
+        while(temp!=null){
             count++;
-            if(count==index){
-                return current.data;
+            if(count == index){
+                return temp.data;
             }
-            current=current.next;
+            temp=temp.next;
         }
         return -1;
+        
     }
 }
