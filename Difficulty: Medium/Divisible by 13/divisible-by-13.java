@@ -1,18 +1,27 @@
 class Solution {
     public boolean divby13(String s) {
-        if (s == null || s.isEmpty()) {
-            return false; // Or throw an IllegalArgumentException, depending on desired behavior for invalid input.
-        }
-
-        int remainder = 0;
-        for (char c : s.toCharArray()) {
-            if (!Character.isDigit(c)) {
-                return false; // Handle non-digit characters in the string
+        // code here
+        int n = s.length();
+        if(n==0)return true;
+        StringBuilder st = new StringBuilder();
+        for(int i = 0;i<n;i++)
+        {
+            st.append(s.charAt(i));
+            while(i+1<n&&Integer.parseInt(st.toString())<13)
+            {
+                i++;
+                st.append(s.charAt(i));
             }
-            int digit = c - '0'; // Convert char digit to int
-            remainder = (remainder * 10 + digit) % 13;
+            int num = Integer.parseInt(st.toString());
+            int k = num%13;
+            if(k!=0)
+            {
+                st = new StringBuilder(String.valueOf(k));
+            }
+            else{
+                st = new StringBuilder();
+            }
         }
-
-        return remainder == 0;
+        return st.length()==0;
     }
 }
