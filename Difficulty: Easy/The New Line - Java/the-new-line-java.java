@@ -5,9 +5,7 @@ class Geeks {
 
        // Your code here
         String s = "Geeks for Geeks";
-        
         String[] str = s.split(" ");
-        
         for(int i = 0; i < str.length; i++){
             System.out.println(str[i]);
         }
