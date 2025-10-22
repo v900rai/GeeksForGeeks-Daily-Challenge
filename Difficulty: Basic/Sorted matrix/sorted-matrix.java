@@ -7,7 +7,8 @@ class Solution {
         int k=0;
         for(int i=0;i<Mat.length;i++){
             for(int j=0;j<Mat[0].length;j++){
-                arr[k++]=Mat[i][j];
+                arr[k]=Mat[i][j];
+                k++;
             }
         }
         Arrays.sort(arr);
