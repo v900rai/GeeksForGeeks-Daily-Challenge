@@ -5,8 +5,8 @@ class Solution {
         int m = mat.length;        // rows
         int n = mat[0].length;     // columns
         
+       //ArrayList<ArrayList<Integer>> result = new ArrayList<>();
         ArrayList<ArrayList<Integer>> result = new ArrayList<>();
-        
         // Traverse column-wise
         for (int i = 0; i < n; i++) {
             ArrayList<Integer> row = new ArrayList<>();
