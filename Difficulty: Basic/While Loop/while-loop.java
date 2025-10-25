@@ -1,9 +1,13 @@
-class Solution {
-    public static void utility(int x) {
-        // code here
-        while(x>=0){
-            System.out.print(x+" ");
-            x--;
-        }
+import java.util.*;
+
+public class Solution {
+    public static void solve() {
+        Scanner sc = new Scanner(System.in);
+        int x=sc.nextInt();
+       while(x>=0){
+           System.out.print(x--+" ");
+       }
+        
+        
     }
 }
