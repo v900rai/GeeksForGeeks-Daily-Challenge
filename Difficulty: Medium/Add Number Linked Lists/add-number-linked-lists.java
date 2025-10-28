@@ -13,8 +13,7 @@ class Node {
 */
 
 class Solution {
-    
-         public static Node reverse(Node head)
+public static Node reverse(Node head)
     {
         Node curr = head;
         Node prev = null;
@@ -32,7 +31,7 @@ class Solution {
     }
     static Node addTwoLists(Node num1, Node num2) {
         // code here
-             int carry = 0;
+        int carry = 0;
         
         Node rev1 = reverse(num1);
         Node rev2 = reverse(num2);
