@@ -13,7 +13,6 @@ class Node {
 class Solution {
     Node reverseList(Node head) {
         Node prev =null;
-        // code here
         while(head != null){
             Node temp=head.next;
             head.next=prev;
