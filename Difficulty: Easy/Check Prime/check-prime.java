@@ -1,24 +1,24 @@
-import java.util.*;
-
-public class Solution {
-    public static void main(String args[]) {
-        // Your Code Here
-        Scanner s = new Scanner(System.in);
-        int n = s.nextInt();
-    
-         if (n < 2) {
-            System.out.println("False");
-            return;
+class Solution {
+    // Method to check whether a given number 'n' is prime or not
+    public static boolean prime(int n) {
+        // If n is 2, then it's a prime number (smallest even prime)
+        if (n == 2) {
+            return true;
+        } 
+        // If n is 1, then it's not a prime number
+        else if (n == 1) {
+            return false;
         }
 
-        boolean isPrime = true;
-        for (int i = 2; i <= Math.sqrt(n); i++) {
-            if (n % i == 0) {
-                isPrime = false;
-                break;
+        // Check divisibility from 2 to n/2
+        // If n is divisible by any number in this range, it's not prime
+        for (int i = 2; i <= n / 2; i++) {
+            if (n % i == 0) { // if remainder is 0, means divisible
+                return false; // not a prime number
             }
         }
 
-        System.out.println(isPrime ? "True" : "False");
+        // If no number divides n completely, then n is prime
+        return true; 
     }
 }
