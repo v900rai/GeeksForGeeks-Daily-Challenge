@@ -1,17 +1,32 @@
-
 class Solution {
-    // Function to reverse words in a given string
     public String reverseWords(String s) {
-        String[] words = s.trim().split("\\s+");
-        
-        // Reverse the array of words
-        StringBuilder reversed = new StringBuilder();
-        for (int i = words.length - 1; i >= 0; i--) {
-            reversed.append(words[i]);
-            if (i != 0) {
-                reversed.append(" ");
+        // Code here
+        int n = s.length();
+       StringBuilder st = new StringBuilder();
+       List<String>ans=new ArrayList<>();
+        for(int i =0 ; i<n;i++)
+        {
+            if(s.charAt(i)!='.')
+            {
+                st.append(s.charAt(i));
+            }
+            else if(st.length()>0){
+                ans.add(st.toString());
+                st.setLength(0);// Vanishing everything present in it;
             }
         }
-        return reversed.toString();
+        if(st.length()>0)
+        {
+            ans.add(st.toString());
+        }
+        Collections.reverse(ans);
+        st.setLength(0);
+        for(String i : ans)
+        {
+            st.append(i);
+            st.append('.');
+        }
+        st.deleteCharAt(st.length()-1);
+        return st.toString();
     }
 }
