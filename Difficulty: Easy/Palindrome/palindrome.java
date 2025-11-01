@@ -6,10 +6,11 @@
 
 class Solution {
     public boolean isPalindrome(int n) {
-       int reverse=0;
-       int temp=n;
+       int reverse = 0;
+       int temp = n;
        while(temp!=0){
-           reverse=(reverse*10)+(temp%10);
+           int digit = temp %10;
+           reverse=(reverse*10)+digit;
            temp/=10;
        }
        if(reverse==n){
