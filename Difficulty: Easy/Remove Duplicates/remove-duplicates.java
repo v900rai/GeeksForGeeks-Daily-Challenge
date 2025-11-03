@@ -1,41 +1,17 @@
-
-
-
-
 // User function Template for Java
 
 class Solution {
-    String removeDups(String str) {
-        /* String res="";
-        for(int i=0;i<str.length();i++){
-            String ch=""+str.charAt(i);
-            if(res.contains(ch)){
-                continue;
+    String removeDups(String s) {
+        // code here
+        String res ="";
+        HashMap<Character , Integer> map = new HashMap<>();
+        for(int i=0; i<s.length(); i++){
+            char ch = s.charAt(i);
+            if(!map.containsKey(ch)){
+                res+=ch;
+                map.put(ch,1);
             }
-            res+=ch;
         }
-        return res;*/
-        
-    /*    String ans="";
-        for(int i=0; i<str.length(); i++){
-            String ch=""+str.charAt(i);
-            if(ans.contains(ch)){
-                continue;
-            }
-            ans=ans+ch;
-        }
-        return ans;
+        return res;
     }
-}*/
-
-String hh="";
-for(int i=0; i<str.length(); i++){
-    String chr=""+str.charAt(i);
-    if(hh.contains(chr)){
-        continue;
-    }
-    hh=hh+chr;
-}
-return hh;
-}
 }
