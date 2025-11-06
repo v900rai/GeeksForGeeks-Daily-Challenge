@@ -1,33 +1,21 @@
-
-// User function Template for Java
-
-
 class Solution {
     // Function to return Breadth First Search Traversal of given graph.
     public ArrayList<Integer> bfs(ArrayList<ArrayList<Integer>> adj) {
-        ArrayList<Integer> result = new ArrayList<>(); // BFS traversal result
-        Queue<Integer> queue = new LinkedList<>(); // Queue for BFS
-        boolean[] visited = new boolean[adj.size()]; // Visited array
-        
-        // Starting BFS from node 0 (Assuming 0-based indexing)
-        queue.add(0);
-        visited[0] = true;
-        
-        while (!queue.isEmpty()) {
-            int node = queue.poll(); // Remove front element
-            result.add(node); // Add to result
-            
-            // Traverse all adjacent nodes
-            for (int neighbor : adj.get(node)) {
-                if (!visited[neighbor]) {
-                    queue.add(neighbor);
-                    visited[neighbor] = true;
+        int V = adj.size(); // size of adj list is same as number of vertices in graph
+        ArrayList<Integer> list = new ArrayList<>();
+        Queue<Integer> queue = new LinkedList<>();
+        boolean[] vis = new boolean[V];
+        queue.offer(0);
+        while(!queue.isEmpty()) {
+            int curr = queue.poll();
+            if(vis[curr] == false) {
+                list.add(curr);
+                vis[curr] = true;
+                for(int i=0; i<adj.get(curr).size(); i++) {
+                    queue.offer(adj.get(curr).get(i));
                 }
             }
         }
-        
-        return result;
+        return list;
     }
 }
-
-
