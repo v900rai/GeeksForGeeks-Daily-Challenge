@@ -1,6 +1,5 @@
 
 import java.util.Arrays;
-
 class Solution {
     public boolean isSubset(int a[], int b[]) {
         // Step 1: Sort both arrays so that we can use two-pointer technique
