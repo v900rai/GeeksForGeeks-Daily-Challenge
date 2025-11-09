@@ -16,10 +16,11 @@
 //     }
 // }
 
-class Solution  {
+
+class Solution{
     int stockBuySell(int arr[]){
         int profit =0;
-        int n=arr.length;
+        int n= arr.length;
         for(int i=0; i<n-1; i++){
             if(arr[i+1]>arr[i]){
                 profit =profit+arr[i+1]-arr[i];
