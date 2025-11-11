@@ -5,8 +5,9 @@ class Solution {
         ArrayList<Integer> result = new ArrayList<>();
         
         // Edge case: agar array empty ho
-        if(arr == null || arr.length == 0){
-            return result; // empty list return karenge
+       
+        if(arr  == null || arr.length==0){
+            return result;
         }
         
         // Initial min and max ko first element se set karte hain
