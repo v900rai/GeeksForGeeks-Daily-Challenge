@@ -24,6 +24,7 @@ class Solution {
                 count = 1;
             }
         }
+       
         
         // अगर कोई majority element exist नहीं करता
         return -1;
