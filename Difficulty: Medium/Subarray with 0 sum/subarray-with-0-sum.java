@@ -2,25 +2,23 @@ class Solution {
     // Function to check whether there is a subarray present with 0-sum or not.
     static boolean findsum(int arr[]) {
         // Your code here
-     int sum =0;
-        
-        HashMap<Integer, Integer> map = new HashMap<>();
-        
-        for(int i=0; i<arr.length; i++){
-            
-            sum += arr[i];
-            
-            if(sum == 0)
-            return true;
+        Set<Integer> set = new HashSet<>();
+        int sum = 0;
 
-            if(map.containsKey(sum))
-            return true;
+        for (int num : arr) {
+            sum += num; // prefix sum
+
+            // If prefix sum becomes 0 or repeats -> 0 sum subarray exists
             
-            map.put(sum, i);
+            if(sum  == 0 || set.contains(sum)){
+                return true;
+                
+            }
+            set.add(sum);
+
             
         }
-        
         return false;
-        
+    
     }
 }
