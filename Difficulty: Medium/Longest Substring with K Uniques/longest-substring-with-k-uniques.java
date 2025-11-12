@@ -1,26 +1,31 @@
 class Solution {
     public int longestKSubstr(String s, int k) {
-        HashMap<Character,Integer> map=new HashMap<>();
-        int ans=0, n=s.length();
-        int i=0,j=0;
-        
-        while(j<n){
-            map.put(s.charAt(j),map.getOrDefault(s.charAt(j),0)+1);
-            
-            while(map.size()>k){
-                map.put(s.charAt(i),map.get(s.charAt(i))-1);
-                if(map.get(s.charAt(i))==0){
-                    map.remove(s.charAt(i));
+        if (k == 0 || s.length() == 0) return -1;
+
+        Map<Character, Integer> freq = new HashMap<>();
+        int l = 0;
+        int ml = -1; // default -1 (for case when no valid substring found)
+
+        for (int r = 0; r < s.length(); r++) {
+            char c = s.charAt(r);
+            freq.put(c, freq.getOrDefault(c, 0) + 1);
+
+            // shrink window if unique chars > k
+            while (freq.size() > k) {
+                char lc = s.charAt(l);
+                freq.put(lc, freq.get(lc) - 1);
+                if (freq.get(lc) == 0) {
+                    freq.remove(lc);
                 }
-                i++;
+                l++;
             }
-            
-            if(map.size()==k){
-                ans=Math.max(ans,j-i+1);
+
+            // update only when we have exactly k unique chars
+            if (freq.size() == k) {
+                ml = Math.max(ml, r - l + 1);
             }
-            j++;
         }
-        
-        return ans==0?-1:ans;
+
+        return ml;
     }
 }
