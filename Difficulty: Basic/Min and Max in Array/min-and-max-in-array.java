@@ -16,12 +16,13 @@ class Solution {
         
         // Array traverse karke min aur max nikalenge
         
+      
         for(int i=1; i<arr.length; i++){
-            if(arr[i] < min){
+            if(arr[i]<min){
                 min = arr[i];
             }
             if(arr[i]>max){
-                max=arr[i];
+                max = arr[i];
             }
         }
         
