@@ -20,7 +20,8 @@ class Solution{
         }
     }
     private static NodeVal helper(Node root){
-        if(root==null) return new NodeVal(Integer.MAX_VALUE,Integer.MIN_VALUE,0);
+        if(root==null) 
+        return new NodeVal(Integer.MAX_VALUE,Integer.MIN_VALUE,0);
         NodeVal left=helper(root.left);
         NodeVal right=helper(root.right);
         if(left.max<root.data && right.min>root.data){
