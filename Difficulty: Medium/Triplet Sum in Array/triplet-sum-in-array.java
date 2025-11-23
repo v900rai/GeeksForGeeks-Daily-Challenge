@@ -9,7 +9,8 @@ class Solution {
         for (int i = 0; i < arr.length - 2; i++) {
             int k = i + 1; // Start pointer
             int j = arr.length - 1; // End pointer
-
+              
+              
             // Step 3: Use two-pointer to find if any pair (k, j) with arr[i] sums to target
             while (k < j) {
                 int sum = arr[i] + arr[k] + arr[j];
