@@ -2,7 +2,6 @@
 
 // User function Template for Java
 class Solution {
-    
     static boolean armstrongNumber(int n) {
         int rem;
         int temp; 
@@ -14,9 +13,5 @@ class Solution {
             n = n / 10;
         }
         return temp == sum;
-    
-}
-        
-        
-    
+    }
 }
