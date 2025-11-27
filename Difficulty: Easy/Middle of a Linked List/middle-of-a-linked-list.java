@@ -12,6 +12,7 @@ class Node {
 class Solution {
     int getMiddle(Node head) {
         // code here
+        // code here
         Node fast = head;
         Node slow = head;
         while(fast != null && fast.next != null){
@@ -21,5 +22,4 @@ class Solution {
         }
         return slow.data;
     }
-    
 }
