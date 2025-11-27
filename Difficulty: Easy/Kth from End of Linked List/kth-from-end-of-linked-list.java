@@ -7,20 +7,22 @@ class Node
 } */
 
 class Solution {
+
+    // Function to find the data of kth node from
+    // the end of a linked list.
     int getKthFromLast(Node head, int k) {
-  
-        Node slow = head;
+        // Your code here
         Node fast = head;
-             for(int i=1; i<=k; i++){
-                 if(fast == null){
-                     return -1;
-                 }
-                 fast = fast.next;
-             }
-        
-        while(fast !=null){
+        Node slow = head;
+        for(int i=1; i<=k; i++){
+            if(fast == null){
+                return -1;
+            }
+            fast = fast.next;
+        }
+        while(fast != null){
+            fast = fast.next;
             slow = slow.next;
-            fast =fast.next;
         }
         return slow.data;
     }
