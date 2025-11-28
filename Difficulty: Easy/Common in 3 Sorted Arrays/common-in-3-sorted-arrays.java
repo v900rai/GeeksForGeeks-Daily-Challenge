@@ -19,7 +19,8 @@ class Solution {
         }
         
         List<Integer> res= new ArrayList<>();
-        for(Map.Entry<Integer,Integer> entry: mp.entrySet()){
+        
+        for(Map.Entry<Integer, Integer> entry:mp.entrySet()){
             if(entry.getValue()==3){
                 res.add(entry.getKey());
             }
