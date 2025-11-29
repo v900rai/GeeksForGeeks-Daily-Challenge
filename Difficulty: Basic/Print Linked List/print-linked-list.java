@@ -1,24 +1,34 @@
+
 /*
-class Node {
+class Node
+{
     int data;
     Node next;
-    Node(int x) {
-        data = x;
-        next = null;
+    Node(int data)
+    {
+        this.data = data;
+        this.next = null;
     }
 }*/
-
 class Solution {
-    public ArrayList<Integer> printList(Node head) {
+    public int[] displayList(Node head) {
         // code here
-        ArrayList<Integer> list=new ArrayList<>(); 
-        return rec(head,list);
-    }
-    static ArrayList<Integer> rec(Node head,ArrayList<Integer>list){
-        if(head==null){
-            return list;
+        Node current = head;
+        int count = 0;
+        while (current != null) {
+            count++;
+            current = current.next;
         }
-        list.add(head.data);
-        return rec(head.next,list);
+        
+        current = head;
+        int[] list = new int[count];
+        int index = 0;
+        
+        while (current != null) {
+            list[index] = current.data;
+            current = current.next;
+            index++;
+        }
+        return list;
     }
 }
