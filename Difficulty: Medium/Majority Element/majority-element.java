@@ -2,17 +2,13 @@ import java.util.*;
 
 class Solution {
     static int majorityElement(int arr[]) {
+        if(arr.length == 1){
+            return arr[0];
+        }
         
-        // अगर array में सिर्फ एक element है तो वही majority element होगा
-        if(arr.length == 1)
-            return arr[0]; // base case
-        
-        int size = arr.length / 2; // majority element होने के लिए count > n/2 होना चाहिए
-        int count = 1; // लगातार आने वाले elements को count करेंगे
-        
-        // Array को sort कर दिया, ताकि एक जैसे elements साथ आ जाएं
-        Arrays.sort(arr);
-        
+         int size = arr.length/2;
+         int count =1;
+         Arrays.sort(arr);
         // sorted array को iterate करके frequency count करेंगे
         for(int i = 1; i < arr.length; i++) {
             if(arr[i] == arr[i-1]) { // अगर current element previous के बराबर है
