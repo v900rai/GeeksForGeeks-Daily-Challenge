@@ -1,6 +1,5 @@
 class Solution {
     public int binarysearch(int[] arr, int k) {
-        // Code Here
         int start = 0;
         int end = arr.length-1;
         int result = -1;
