@@ -7,8 +7,9 @@ class Solution {
        HashSet<Integer> h1 = new HashSet<>(arr1);
        HashSet<Integer> h2 = new HashSet<>(arr2);
        HashSet<Integer> h3 = new HashSet<>(arr3);
-        for(int i :h1){
-            mp.put(i,mp.getOrDefault(i,0)+1);
+        
+        for(int i : h1){
+            mp.put(i, mp.getOrDefault(i,0)+1);
         }
         for(int i :h2){
             mp.put(i,mp.getOrDefault(i,0)+1);
