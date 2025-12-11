@@ -14,7 +14,8 @@ class Node {
 class Solution {
     public Node cloneLinkedList(Node head) {
         // code here
-        if (head == null) return head;
+        if (head == null)
+        return head;
         Node ans = connectRandom(insertBetween(head));
         return computeFinal(ans);
         
