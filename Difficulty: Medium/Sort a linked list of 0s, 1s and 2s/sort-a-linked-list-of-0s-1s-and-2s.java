@@ -30,7 +30,6 @@ class Solution {
         }
         
         curr = head;
-        
         while(curr!=null){
             if(zero!=0){
                 curr.data = 0;
