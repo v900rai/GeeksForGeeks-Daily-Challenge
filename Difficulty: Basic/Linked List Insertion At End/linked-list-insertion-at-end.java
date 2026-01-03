@@ -16,12 +16,12 @@ class Solution {
         if(head == null){
             return node;
         }
-        Node temp = head;
-        while(temp.next != null){
-            temp = temp.next;
-            
+        Node curr = head;
+        while(curr.next != null){
+            curr = curr.next;
         }
-        temp.next =node;
+        curr.next =node;
         return head;
+        
     }
 }
