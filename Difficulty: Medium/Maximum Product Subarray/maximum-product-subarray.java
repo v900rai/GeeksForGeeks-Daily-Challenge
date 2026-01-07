@@ -21,6 +21,8 @@ class Solution {
             currentMin = Math.min(arr[i], currentMin * arr[i]);
             
             maxProduct = Math.max(maxProduct, currentMax);
+            
+            
         }
         
         return maxProduct;
