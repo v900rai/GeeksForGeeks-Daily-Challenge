@@ -1,6 +1,6 @@
 class Solution {
     static ArrayList<Integer> leaders(int arr[]) {
-        // code here
+    
         ArrayList<Integer> list = new ArrayList<>();
         
         int currSum= arr[arr.length-1];
