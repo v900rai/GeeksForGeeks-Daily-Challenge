@@ -13,6 +13,8 @@ class Solution {
             
             
             
+            
+            
             while(sum>target && i<j){
                 sum = sum-arr[i];
                 i++;
