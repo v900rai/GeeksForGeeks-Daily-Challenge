@@ -12,7 +12,7 @@ class Node {
 
 class Solution {
     Node reverseList(Node head) {
-        // code here
+      
         
         Node curr =head;
         Node prev = null;
