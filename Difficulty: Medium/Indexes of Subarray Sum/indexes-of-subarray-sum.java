@@ -10,12 +10,6 @@ class Solution {
         for(int j=0; j<n; j++){
             sum = sum+arr[j];
             
-            
-            
-            
-            
-            
-            
             while(sum > target && i<j){
                 sum = sum-arr[i];
                 i++;
