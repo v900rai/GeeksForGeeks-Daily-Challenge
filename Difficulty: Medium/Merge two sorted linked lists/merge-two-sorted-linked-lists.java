@@ -12,8 +12,10 @@ class Node
 
 class Solution {
     Node sortedMerge(Node head1, Node head2) {
-         if(head1==null) return  head2;
-          if(head2==null) return  head1;
+         if(head1==null) 
+         return  head2;
+          if(head2==null)
+          return  head1;
          Node newHead=new Node(-1);
          Node dummy=newHead;
          while(head1!=null && head2!=null){
