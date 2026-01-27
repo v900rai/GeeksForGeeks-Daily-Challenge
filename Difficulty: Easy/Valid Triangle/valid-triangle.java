@@ -1,11 +1,13 @@
-// User function Template for Java
 class Solution {
     public boolean checkValidity(int a, int b, int c) {
         // code here
-        if ((a+b)<=c) return false;
-         if ((c+b)<=a) return false;
-         if ((a+c)<=b) return false;
-         
-         return true;
+        int a1 =b+c; // b+c > a
+        int b1 =a+c; // a+c > b
+        int c1 =a+b; // a+b > c
+        
+        if(a1>a && b1>b && c1>c){
+            return true;
+        }
+        return false;
     }
 }
