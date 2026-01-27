@@ -32,7 +32,7 @@ class Solution {
     }
     static Node addTwoLists(Node num1, Node num2) {
         // code here
-             int carry = 0;
+        int carry = 0;
         
         Node rev1 = reverse(num1);
         Node rev2 = reverse(num2);
@@ -44,8 +44,10 @@ class Solution {
         {
             int val1 = 0;
             int val2 = 0;
-            if(rev1 != null) val1 = rev1.data;
-            if(rev2 != null) val2 = rev2.data;
+            if(rev1 != null) 
+            val1 = rev1.data;
+            if(rev2 != null) 
+            val2 = rev2.data;
             
             int sum = val1 + val2 + carry;
            
