@@ -3,7 +3,7 @@ class Solution {
     static ArrayList<Integer> subarraySum(int[] arr, int target) {
         // code here
         ArrayList <Integer>  list = new ArrayList<>();
-        int n= arr.length;
+        int n = arr.length;
         int sum =0;
         
         int i=0;
