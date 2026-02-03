@@ -1,9 +1,13 @@
+class Solution {
+    public int maxProfit(int[] prices) {
+        // Code here
+        
+ 
 
 
 // User function Template for Java
 
-class Solution {
-    public int maximumProfit(int prices[]) {
+
         // If prices array is empty or has only one element, profit is 0
         
         if(prices == null || prices.length<2){
