@@ -1,11 +1,24 @@
+// User function Template for Java
 
-
-class Solution{
-    static String revStr(String s){
-        StringBuilder revStr= new StringBuilder();
-        for(int i=s.length()-1; i>=0; i--){
-            revStr.append(s.charAt(i));
-        }
-        return revStr.toString();
+class Solution {
+    public static String reverseString(String s) {
+     
+     char[] ch = s.toCharArray();
+      
+     int start = 0;
+     int end = s.length() -1;
+     
+     while(start < end){
+   
+      char temp = ch[end];
+      ch[end] = ch[start];
+      ch[start] = temp;
+      start++;
+      end--;
+     }
+     
+     return new String(ch);
+        
     }
 }
+
