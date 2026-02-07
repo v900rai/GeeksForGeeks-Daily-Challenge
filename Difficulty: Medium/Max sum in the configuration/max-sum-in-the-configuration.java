@@ -1,19 +1,24 @@
 class Solution {
- int maxSum(int[] arr) {
-        // Your code here
-        int sum=0,s0=0;
-        for(int i=0;i<arr.length;i++){
-            s0+=i*arr[i];
-            sum+=arr[i];
+    int maxSum(int[] arr) {
+        // code here
+        int n=arr.length;
+         int arrSum = 0;
+        int curr = 0;
+
+        // Calculate array sum and initial i * arr[i]
+        for (int i = 0; i < n; i++) {
+            arrSum += arr[i];
+            curr += i * arr[i];
         }
-        int max=s0;
-        int p=s0;
-        for(int i=0;i<arr.length-1;i++){
-            // S[i+1] = S[i] + SUM - N * ARR[N-i-1]
-            int s=(p+sum)-(arr.length*arr[arr.length-i-1]);
-            max=Integer.max(max,s);
-            p=s;
+
+        int maxValue = curr;
+
+        // Compute values for remaining rotations
+        for (int i = 1; i < n; i++) {
+            curr = curr + arrSum - n * arr[n - i];
+            maxValue =Math.max(maxValue, curr);
         }
-        return max;
+
+        return maxValue;
     }
 }
