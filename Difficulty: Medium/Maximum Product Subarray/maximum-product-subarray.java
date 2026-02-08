@@ -10,7 +10,8 @@ class Solution {
         int currentMin = arr[0];
         
         for (int i = 1; i < arr.length; i++) {
-            if (arr[i] < 0) {
+           
+            if(arr[i]<0){
                 int temp = currentMax;
                 currentMax = currentMin;
                 currentMin = temp;
