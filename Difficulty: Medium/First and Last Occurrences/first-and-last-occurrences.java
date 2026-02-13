@@ -1,15 +1,13 @@
-// User function Template for Java
-
-class GFG {
+class Solution {
     ArrayList<Integer> find(int arr[], int x) {
-        ArrayList<Integer> list = new ArrayList<>();
         
+        ArrayList<Integer> list = new ArrayList<>();
         int first = -1;
         int second = -1;
         
         for(int i=0; i<arr.length; i++){
             if(arr[i] == x){
-                first =i;
+                first = i;
                 break;
             }
         }
@@ -22,6 +20,5 @@ class GFG {
         list.add(first);
         list.add(second);
         return list;
-        
     }
 }
