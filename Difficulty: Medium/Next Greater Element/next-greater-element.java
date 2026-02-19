@@ -1,31 +1,24 @@
 class Solution {
-    
-    public ArrayList<Integer> nextLargerElement(int[] a) {
-        // code here
-        Stack<Integer> st = new Stack<>();
-        ArrayList<Integer> res = new ArrayList<>();
-        int[] ans = new int[a.length];
+    public ArrayList<Integer> nextLargerElement(int[] arr) {
 
-        // solve
+        int n = arr.length;
+        int[] res = new int[n];
+        Stack<Integer> stack = new Stack<>();
 
-        for (int i = a.length; i > 0; i--) {
-            int temp = a[i - 1];
-            while (!st.isEmpty() && st.peek() <= temp) {
-                st.pop();
+        for (int i = n - 1; i >= 0; i--) {
+
+            while (!stack.isEmpty() && stack.peek() <= arr[i]) {
+                stack.pop();
             }
-            if (st.isEmpty()) {
-                ans[i - 1] = -1;
-            } else {
-                ans[i - 1] = st.peek();
-            }
-            st.push(temp);
+
+            res[i] = stack.isEmpty() ? -1 : stack.peek();
+
+            stack.push(arr[i]);
         }
-        for (int val : ans) {
-            res.add(val);
-        }
-        return res;
-        
+
+        ArrayList<Integer> ans = new ArrayList<>();
+        for (int x : res) ans.add(x);
+
+        return ans;
     }
 }
- 
-
