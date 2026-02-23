@@ -14,10 +14,10 @@ class Solution {
     Node reverseList(Node head) {
       
         
-        Node curr =head;
+        Node curr = head;
         Node prev = null;
         
-        while(curr!= null){
+        while(curr != null){
             Node temp =curr.next;
             curr.next = prev;
             prev = curr;
