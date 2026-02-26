@@ -3,6 +3,7 @@
 class Solution {
     public static String reverseString(String s) {
      
+     //char[] ch = s.toCharArray();
      char[] ch = s.toCharArray();
       
      int start = 0;
