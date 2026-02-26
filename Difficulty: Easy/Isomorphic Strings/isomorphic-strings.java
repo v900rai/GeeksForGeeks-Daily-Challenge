@@ -1,38 +1,41 @@
-
-
 class Solution {
-    // Function to check if two strings are isomorphic.
-    public static boolean areIsomorphic(String s1, String s2) {
-          
-        if(s1.length()!=s2.length())
-        {
+    public boolean areIsomorphic(String s, String t) {
+
+        // Length check
+        if (s.length() != t.length()) {
             return false;
         }
-        
-        int ts[]=new int[256];
-        int st[]=new int[256];
-        
-        Arrays.fill(ts,-1);
-        Arrays.fill(st,-1);
-        
-        for(int i=0;i<s1.length();i++)
-        {
-            char ss=s1.charAt(i);
-            char tt=s2.charAt(i);
 
-            if(ts[ss]==-1 && st[tt]==-1)
-            {
-                ts[ss]=tt;
-                st[tt]=ss;
+        // Two HashMaps for mapping
+        HashMap<Character, Character> mapST = new HashMap<>();
+        HashMap<Character, Character> mapTS = new HashMap<>();
+
+        // Traverse both strings
+        for (int i = 0; i < s.length(); i++) {
+
+            char ch1 = s.charAt(i);
+            char ch2 = t.charAt(i);
+
+            // Check s -> t mapping
+            if (mapST.containsKey(ch1)) {
+                if (mapST.get(ch1) != ch2) {
+                    return false;
+                }
+            } else {
+                mapST.put(ch1, ch2);
             }
-            
-            else if(ts[ss]!=tt || st[tt]!=ss)
-            {
-                return false;
+
+            // Check t -> s mapping
+            if (mapTS.containsKey(ch2)) {
+                if (mapTS.get(ch2) != ch1) {
+                    return false;
+                }
+            } else {
+                mapTS.put(ch2, ch1);
             }
         }
-        
-return true;
-    
+
+        return true;
     }
+
 }
