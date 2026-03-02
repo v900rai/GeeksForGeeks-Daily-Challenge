@@ -13,8 +13,7 @@ class Node {
 */
 
 class Solution {
-    
-         public static Node reverse(Node head)
+public static Node reverse(Node head)
     {
         Node curr = head;
         Node prev = null;
