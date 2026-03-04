@@ -1,24 +1,42 @@
 class Solution {
     public int maxSubarrayXOR(int[] arr, int k) {
-        // code here
-        if(k> arr.length || k==0){
+
+        // ❌ Edge cases:
+        // agar k array length se bada hai ya k == 0 hai
+        // to koi valid subarray possible nahi
+        if (k > arr.length || k == 0) {
             return 0;
         }
-        int i=0;
-        int j=0;
-        int xor = 0;
-        int max =0;
-        while(j<arr.length){
+
+        int i = 0;        // 👉 window ka left pointer
+        int j = 0;        // 👉 window ka right pointer
+        int xor = 0;      // 👉 current window ka XOR
+        int max = 0;      // 👉 maximum XOR store karega
+
+        // jab tak right pointer array ke andar hai
+        while (j < arr.length) {
+
+            // 👉 right element ko XOR me add karo
             xor = xor ^ arr[j];
-            if(j-i+1 >k){
-                xor ^= arr[i];
-                i++;
+
+            // ❗ agar window ka size k se bada ho gaya
+            if (j - i + 1 > k) {
+                // 👉 left element ka effect remove karo
+                xor = xor ^ arr[i];
+                i++; // 👉 left pointer aage badhao
             }
-             if(j-i+1==k){
-                max = Math.max(max,xor);
+
+            // ✅ jab window ka size exactly k ho
+            if (j - i + 1 == k) {
+                // 👉 maximum XOR update karo
+                max = Math.max(max, xor);
             }
+
+            // 👉 right pointer aage badhao
             j++;
         }
-        return  max;
+
+        // 👉 final maximum XOR return
+        return max;
     }
 }
