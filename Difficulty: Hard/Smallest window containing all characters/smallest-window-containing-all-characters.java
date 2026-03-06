@@ -1,46 +1,45 @@
-
 class Solution {
-    public static String smallestWindow(String s, String p) {
-        // code here
-        int n=s.length();
-        int m=p.length();
-        Map<Character,Integer>mp=new HashMap<>();
-        for(int i=0;i<m;i++)
-        {
-            char c=p.charAt(i);
-            mp.put(c,mp.getOrDefault(c,0)+1);
+    public String minWindow(String s, String p) {
+        if (p.length() > s.length()) return "";
+        
+        int[] freq = new int[26];
+        
+        // Store frequency of characters in p
+        for (char c : p.toCharArray()) {
+            freq[c - 'a']++;
         }
-        int cnt=mp.size();
-        int i=0;
-        int j=0;
-        int len=Integer.MAX_VALUE;
-        int st=-1;
-        while(j<n)
-        {
-            char c=s.charAt(j);
-            if(mp.containsKey(c))
-            {
-                mp.put(c,mp.get(c)-1);
-                if(mp.get(c)==0)cnt--;
-                while(cnt==0)
-                {
-                    if(len>j-i+1)
-                    {
-                        len=j-i+1;
-                        st=i;
-                    }
-                    char ch=s.charAt(i);
-                    if(mp.containsKey(ch))
-                    {
-                        mp.put(ch,mp.get(ch)+1);
-                        if(mp.get(ch)==1)cnt++;
-                    }
-                    i++;
-                }
+        
+        int left = 0;
+        int count = p.length();
+        int minLen = Integer.MAX_VALUE;
+        int start = 0;
+        
+        for (int right = 0; right < s.length(); right++) {
+            
+            if (freq[s.charAt(right) - 'a'] > 0) {
+                count--;
             }
-            j++;
+            
+            freq[s.charAt(right) - 'a']--;
+            
+            // When all characters matched
+            while (count == 0) {
+                
+                if (right - left + 1 < minLen) {
+                    minLen = right - left + 1;
+                    start = left;
+                }
+                
+                freq[s.charAt(left) - 'a']++;
+                
+                if (freq[s.charAt(left) - 'a'] > 0) {
+                    count++;
+                }
+                
+                left++;
+            }
         }
-        if(st==-1)return "";
-        return s.substring(st,st+len);
+        
+        return minLen == Integer.MAX_VALUE ? "" : s.substring(start, start + minLen);
     }
 }
