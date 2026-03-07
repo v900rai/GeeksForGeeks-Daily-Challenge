@@ -1,8 +1,6 @@
 class Solution {
     public ArrayList<Integer> bfs(ArrayList<ArrayList<Integer>> adj) {
-        // code here
         int n = adj.size();
-        
         ArrayList<Integer> ans = new ArrayList<>();
         Queue<Integer> q = new LinkedList<>();
         boolean vis[] = new boolean[n];
