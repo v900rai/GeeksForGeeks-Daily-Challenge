@@ -1,6 +1,5 @@
 class Solution {
     static int noOfWays(int m, int n, int x) {
-        // code here
         int[] dp = new int[x+1];
         dp[0] = 1;
         
