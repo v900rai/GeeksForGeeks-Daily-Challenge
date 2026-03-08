@@ -5,7 +5,7 @@
 class Solution {
     static List<Integer> get(int a, int b) {
         // code here
-        List<Integer> res=new ArrayList<>();
+    List<Integer> res=new ArrayList<>();
     a=a^b;
     
     b=a^b;
