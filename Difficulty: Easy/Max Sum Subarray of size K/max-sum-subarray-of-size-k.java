@@ -11,7 +11,7 @@ class Solution {
             if (j - i + 1 == k) {  // जब window का size k हो जाए
                 max = Math.max(sum, max);  // max update
                 
-                sum -= arr[i];  // window से पहला element हटाओ
+                sum =sum -  arr[i];  // window से पहला element हटाओ
                 i++;            // window को आगे slide करो
             }
             
