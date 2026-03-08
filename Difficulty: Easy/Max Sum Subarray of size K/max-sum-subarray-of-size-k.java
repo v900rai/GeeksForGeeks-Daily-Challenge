@@ -6,7 +6,7 @@ class Solution {
         int max = Integer.MIN_VALUE; // sum = current window sum, max = final answer
         
         while (j < arr.length) {
-            sum += arr[j];  // नया element add कर रहे हैं
+            sum =sum +  arr[j];  // नया element add कर रहे हैं
             
             if (j - i + 1 == k) {  // जब window का size k हो जाए
                 max = Math.max(sum, max);  // max update
