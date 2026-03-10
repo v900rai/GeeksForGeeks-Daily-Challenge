@@ -13,7 +13,7 @@
 class Solution {
     /* Function to print nodes in a given Circular linked list */
     void printList(Node head) {
-        if(head==null){
+        if(head==null){ 
             return;
         }
         Node first=head;
