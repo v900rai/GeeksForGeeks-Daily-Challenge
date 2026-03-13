@@ -1,8 +1,11 @@
 public class Solution {
-    public void utility(Scanner scn) {
-        // code here
-        String a=scn.next();
-        String b=scn.next();
+    public void utility(Scanner sc) {
+        String a = sc.next();
+        String b = sc.next();
         System.out.println(a+" "+b);
     }
 }
+
+
+
+
