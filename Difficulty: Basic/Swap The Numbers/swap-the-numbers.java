@@ -9,9 +9,9 @@ class GFG {
         int b = sc.nextInt();
         // Write Code to Swap
         
-        int temp =a;
+        int temp = a ;
         a = b;
-        b= temp;
+        b =temp;
 
         System.out.println(a + " " + b);
     }
