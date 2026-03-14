@@ -1,26 +1,39 @@
+/*
+class Node {
+    int data;
+    Node left;
+    Node right;
 
-
-
-
-
-
-// User function Template for Java
-
+    Node(int val) {
+        data = val;
+        left = right = null;
+    }
+}
+*/
 
 class Solution {
-    boolean isBST(Node root) {
-        int min=Integer.MIN_VALUE;
-        int max=Integer.MAX_VALUE;
-        return bst(root,min,max);
-    }
-    //public static boolean bst(Node root,int min,int max)
-    public static boolean bst(Node root,int min,int max)
-    {
-        if(root == null)
-        return true;
-        if(root.data<=min || root.data>=max) 
-        return false;
-        return bst(root.left,min,root.data) && bst(root.right,root.data,max);
-    }
     
+    public boolean isBST(Node root) {
+        // BST check karne ke liye initial range:
+        // minimum possible value se maximum possible value tak
+        return bst(root, Long.MIN_VALUE, Long.MAX_VALUE);
+    }
+
+    public boolean bst(Node root, long min, long max) {
+        // Base case:
+        // agar node null hai, to valid BST mana jayega
+        if (root == null) {
+            return true;
+        }
+
+        // Current node ki value allowed range ke andar honi chahiye
+        if (root.data <= min || root.data >= max) {
+            return false;
+        }
+
+        // Left subtree ke liye max current node ki value hogi
+        // Right subtree ke liye min current node ki value hogi
+        return bst(root.left, min, root.data) &&
+               bst(root.right, root.data, max);
+    }
 }
