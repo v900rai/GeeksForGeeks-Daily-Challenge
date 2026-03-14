@@ -1,58 +1,61 @@
 /*
-class Node{
+class Node {
     int data;
-    Node left;
-    Node right;
-    Node(int data){
-        this.data = data;
-        left=null;
-        right=null;
+    Node left, right;
+
+    Node(int val) {
+        this.data = val;
+        this.left = null;
+        this.right = null;
     }
 }
 */
-
 class Solution {
-    // Function to return a list of nodes visible from the top view
-    // from left to right in Binary Tree.
-    static class pair{
-    int state;
-    Node root;
-    pair(Node root,int state)
-    {
-        this.state = state;
-        this.root = root;
+    class CustomNode{
+        Node node;
+        int col;
+        CustomNode(Node node , int col){
+            this.node = node;
+            this.col = col;
+        }
     }
- }
-    static ArrayList<Integer> topView(Node root) {
+    public ArrayList<Integer> topView(Node root) {
         // code here
-        ArrayList<Integer> res = new ArrayList();
-        if(root == null) return null;
-        Queue<pair> q = new LinkedList<>();
-        Map<Integer,Integer> map = new TreeMap<>();
-        q.add(new pair(root,0));
-        while(!q.isEmpty())
-        {
-            pair it = q.remove();
-            int hd = it.state;
-            Node temp = it.root;
-            if(map.get(hd) == null)
-            {
-                map.put(hd,temp.data);
+        ArrayList<Integer> result = new ArrayList<>();
+        if(root == null){
+            return result;
+        }
+        int minCol = Integer.MAX_VALUE;
+        int maxCol = Integer.MIN_VALUE;
+        
+        HashMap<Integer, Integer> map = new HashMap<>();
+        Queue<CustomNode> q = new LinkedList<>();
+        
+        q.offer(new CustomNode(root , 0));
+        
+        while(!q.isEmpty()){
+            CustomNode currNode = q.poll();
+            Node node = currNode.node;
+            int col = currNode.col;
+            
+            if(!map.containsKey(col)){
+                map.put(col , node.data);
+                minCol = Math.min(minCol , col);
+                maxCol = Math.max(maxCol , col);
             }
-            if(temp.left != null)
-            {
-                q.add(new pair(temp.left,hd-1));
+            
+            if(node.left != null){
+                q.offer(new CustomNode(node.left , col - 1));
             }
-            if(temp.right != null)
-            {
-                q.add(new pair(temp.right,hd+1));
+            if(node.right != null){
+                q.offer(new CustomNode(node.right , col + 1));
             }
         }
-        for(Map.Entry<Integer,Integer> e:map.entrySet())
-        {
-            res.add(e.getValue());
+        
+        for(int i = minCol ; i <= maxCol ; i++){
+            result.add(map.get(i));
         }
-
-        return  res;
+        return result;
     }
 }
+
