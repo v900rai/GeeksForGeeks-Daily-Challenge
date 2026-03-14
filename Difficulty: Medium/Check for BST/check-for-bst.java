@@ -13,7 +13,9 @@ class Solution {
         int max=Integer.MAX_VALUE;
         return bst(root,min,max);
     }
-    public static boolean bst(Node root,int min,int max){
+    //public static boolean bst(Node root,int min,int max)
+    public static boolean bst(Node root,int min,int max)
+    {
         if(root == null)
         return true;
         if(root.data<=min || root.data>=max) 
