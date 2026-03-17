@@ -1,17 +1,14 @@
-
-
 class Solution {
     public void reverseArray(int arr[]) {
-        
-          // code here
-        int i = 0;
-        int j = arr.length-1;
-        while(i<j){
-            int temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
-            i++;
-            j--;
-    }
+        // code here
+        int left = 0;
+        int right = arr.length-1;
+        while(left <right){
+            int temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = temp;
+            left++;
+            right--;
+        }
     }
 }
