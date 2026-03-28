@@ -1,85 +1,153 @@
-//{ Driver Code Starts
-import java.util.*;
-
-public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int tc = sc.nextInt();
-        while (tc-- > 0) {
-            int V = sc.nextInt();
-            int E = sc.nextInt();
-            int[][] edges = new int[E][2];
-            for (int i = 0; i < E; i++) {
-                edges[i][0] = sc.nextInt();
-                edges[i][1] = sc.nextInt();
-            }
-
-            Solution obj = new Solution();
-            ArrayList<Integer> ans = obj.articulationPoints(V, edges);
-            Collections.sort(ans);
-            for (int val : ans) {
-                System.out.print(val + " ");
-            }
-            System.out.println();
-            System.out.println("~");
-        }
-    }
-}
-// } Driver Code Ends
-
-
-
-
 class Solution {
+
     static ArrayList<Integer> articulationPoints(int V, int[][] edges) {
-        ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
-        for (int i = 0; i < V; i++) adj.add(new ArrayList<>());
-        for (int[] edge : edges) {
-            adj.get(edge[0]).add(edge[1]);
-            adj.get(edge[1]).add(edge[0]);
-        }
 
-        int[] tin = new int[V];
+    ArrayList<ArrayList<Integer>>adj=new ArrayList<>();
+
+    for(int i=0;i<V;i++)
+
+    adj.add(new ArrayList<>());
+
+    for(int[]e:edges){
+
+        adj.get(e[0]).add(e[1]);
+
+        adj.get(e[1]).add(e[0]);
+
+    }
+
+        int[] disc = new int[V];
+
         int[] low = new int[V];
-        boolean[] vis = new boolean[V];
+
+        int[] parent = new int[V];
+
+        int[] childCount = new int[V];
+
+        int[] nextNeighborIdx = new int[V]; // Tracks which neighbor to visit next
+
         boolean[] isArticulation = new boolean[V];
-        int[] timer = {0};
+
+        int timer = 0;
+
+ 
+
+        Arrays.fill(disc, -1);
+
+        Arrays.fill(parent, -1);
+
+ 
 
         for (int i = 0; i < V; i++) {
-            if (!vis[i]) {
-                dfs(i, -1, adj, vis, tin, low, timer, isArticulation);
-            }
-        }
 
-        ArrayList<Integer> ans = new ArrayList<>();
-        for (int i = 0; i < V; i++) {
-            if (isArticulation[i]) ans.add(i);
-        }
-        if (ans.size() == 0) ans.add(-1);
-        return ans;
-    }
+            if (disc[i] == -1) {
 
-    static void dfs(int u, int parent, ArrayList<ArrayList<Integer>> adj, boolean[] vis, int[] tin, int[] low, int[] timer, boolean[] isArticulation) {
-        vis[u] = true;
-        tin[u] = low[u] = timer[0]++;
-        int children = 0;
-        
-        for (int v : adj.get(u)) {
-            if (v == parent) continue;
-            if (!vis[v]) {
-                dfs(v, u, adj, vis, tin, low, timer, isArticulation);
-                low[u] = Math.min(low[u], low[v]);
-                if (low[v] >= tin[u] && parent != -1) {
-                    isArticulation[u] = true;
+                Stack<Integer> stack = new Stack<>();
+
+                stack.push(i);
+
+                disc[i] = low[i] = ++timer;
+
+ 
+
+                while (!stack.isEmpty()) {
+
+                    int u = stack.peek();
+
+                    ArrayList<Integer> neighbors = adj.get(u);
+
+ 
+
+                    if (nextNeighborIdx[u] < neighbors.size()) {
+
+                        int v = neighbors.get(nextNeighborIdx[u]++);
+
+                        
+
+                        if (v == parent[u]) continue;
+
+ 
+
+                        if (disc[v] == -1) {
+
+                            // Tree Edge
+
+                            parent[v] = u;
+
+                            childCount[u]++;
+
+                            disc[v] = low[v] = ++timer;
+
+                            stack.push(v);
+
+                        } else {
+
+                            // Back Edge
+
+                            low[u] = Math.min(low[u], disc[v]);
+
+                        }
+
+                    } else {
+
+                        // Post-order processing (Backtracking)
+
+                        stack.pop();
+
+                        if (!stack.isEmpty()) {
+
+                            int p = stack.peek();
+
+                            low[p] = Math.min(low[p], low[u]);
+
+                            
+
+                            // Check articulation point condition for non-root
+
+                            if (parent[p] != -1 && low[u] >= disc[p]) {
+
+                                isArticulation[p] = true;
+
+                            }
+
+                        }
+
+                    }
+
                 }
-                children++;
-            } else {
-                low[u] = Math.min(low[u], tin[v]);
+
+                
+
+                // Root case: Articulation if it has > 1 child in DFS tree
+
+                if (childCount[i] > 1) {
+
+                    isArticulation[i] = true;
+
+                }
+
             }
+
         }
-        if (parent == -1 && children > 1) {
-            isArticulation[u] = true;
+
+ 
+
+        ArrayList<Integer> result = new ArrayList<>();
+
+        for (int i = 0; i < V; i++) {
+
+            if (isArticulation[i]) result.add(i);
+
         }
+
+        
+
+        if (result.isEmpty()) result.add(-1);
+
+        return result;
+
     }
+
 }
 
+ 
