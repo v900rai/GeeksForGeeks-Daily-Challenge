@@ -10,19 +10,21 @@ class Solution {
      int second=Integer.MIN_VALUE;
    
      
-     for(int i =0; i< arr.length; i++){
-         if(arr[i]> first){
+     
+     
+     for(int i=0; i<arr.length; i++){
+         if(arr[i]>first){
              second = first;
-             first =arr[i];
-             
+             first = arr[i];
          }
-         else  if(arr[i] >second && first != arr[i]){
+         if(arr[i]> second && first != arr[i]){
              second = arr[i];
          }
      }
-     if(second==Integer.MIN_VALUE){
+     if(second == Integer.MIN_VALUE){
          return -1;
      }
+    
      return second;
     }
 }
