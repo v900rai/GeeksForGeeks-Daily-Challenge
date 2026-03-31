@@ -1,47 +1,46 @@
-/*
-class Node
-{
-    int data;
-    Node next;
-}
-*/
-
 class Solution {
-    // Function to remove a loop in the linked list.
     public static void removeLoop(Node head) {
-        Node slow = head;   // kachua
-        Node fast = head;   // khargosh
 
-        // Step 1: Detect loop using Floyd’s Cycle Detection
+        if (head == null || head.next == null)
+            return;
+
+        Node slow = head;
+        Node fast = head;
+
+        // Step 1: Detect loop
+        boolean hasLoop = false;
+
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
 
-            if (slow == fast) { // Loop detected
+            if (slow == fast) {
+                hasLoop = true;
                 break;
             }
         }
 
-        // If no loop found, just return
-        if (fast == null || fast.next == null) {
+        // Agar loop hi nahi hai
+        if (!hasLoop)
             return;
-        }
 
-        // Step 2: Find starting node of the loop
+        // Step 2: Find starting point of loop
         slow = head;
-        while (slow != fast) {
-            slow = slow.next;
-            fast = fast.next;
+
+        // Special case: loop starts at head
+        if (slow == fast) {
+            while (fast.next != slow) {
+                fast = fast.next;
+            }
+        } else {
+            // Normal case
+            while (slow.next != fast.next) {
+                slow = slow.next;
+                fast = fast.next;
+            }
         }
 
-        // Step 3: Find last node in loop and break the loop
-        Node loopNode = slow;
-        Node temp = loopNode;
-        while (temp.next != loopNode) {
-            temp = temp.next;
-        }
-
-        // Break the loop
-        temp.next = null;
+        // Step 3: Remove loop
+        fast.next = null;
     }
 }
