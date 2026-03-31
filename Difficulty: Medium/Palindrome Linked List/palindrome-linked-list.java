@@ -28,7 +28,6 @@ class Solution {
              temp=temp.next;
          }
          int j=0;
-         
          for(int i=list.size()-1;i>=0;i--){
              int data1=list.get(i);
              int data2=list.get(j);
