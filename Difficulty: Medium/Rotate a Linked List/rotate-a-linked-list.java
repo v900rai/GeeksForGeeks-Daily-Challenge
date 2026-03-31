@@ -33,7 +33,6 @@ class Solution {
             temp = temp.next;
             k--;
         }
-        
         tail.next = head;
         Node p = temp.next;
         temp.next = null;
