@@ -13,15 +13,16 @@ class Node {
 class Solution {
     public boolean detectLoop(Node head) {
         // code here
-        Node fast = head;
+        Node fast =  head;
         Node slow = head;
         while(fast != null && fast.next != null){
-            slow = slow.next;
             fast = fast.next.next;
-            if(fast == slow){
+            slow = slow.next;
+            if(slow == fast){
                 return true;
             }
         }
         return false;
+        
     }
 }
