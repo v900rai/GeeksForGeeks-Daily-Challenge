@@ -16,7 +16,6 @@ class Solution {
             head.data = head.data + 1;
             return head;
         }
-        
         Node curr = addOne(head.next);
         
         if (curr.data > 9) {
