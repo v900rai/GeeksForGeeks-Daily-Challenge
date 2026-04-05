@@ -11,7 +11,6 @@ class Solution {
               sum = 0;
           }
       }
-        
         return max;
     }
 }
