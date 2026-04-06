@@ -1,42 +1,49 @@
 class Solution {
-    class TreeNode {
-        int data;
-        TreeNode left;
-        TreeNode right;
+    static public class Node {
+        int freq;
+        int minIdx;
+        Node left, right;
         
-        TreeNode(int data) {
-            this.data = data;
-            left = right = null;
+        public Node(int freq, int idx) {
+            this.freq = freq;
+            this.minIdx = idx;
+            this.left = null;
+            this.right = null;
         }
-    }
-    public ArrayList<String> huffmanCodes(String S, int f[], int N) {
-        ArrayList<String> preorder = new ArrayList<>();
-        
-        PriorityQueue<TreeNode> pq = new PriorityQueue<>((x, y) -> x.data < y.data ? -1 : 1);
-        Arrays.stream(f).forEach(x -> pq.offer(new TreeNode(x)));
-        
-        while (pq.size() > 1) {
-            TreeNode l = pq.poll();
-            TreeNode r = pq.poll();
-            
-            TreeNode mergedNode = new TreeNode(l.data + r.data);
-            
-            mergedNode.left = l;
-            mergedNode.right = r;
-            pq.offer(mergedNode);
-        }
-        
-        TreeNode root = pq.poll();
-        traverseForCodes(root, preorder, "");
-        return preorder;
     }
     
-    void traverseForCodes(TreeNode root, ArrayList<String> pre, String code) {
-        if (root.left == root.right) {
-            pre.add(code);
+    public ArrayList<String> huffmanCodes(String s, int f[]) {
+        // Code here
+        PriorityQueue<Node> pq = new PriorityQueue<Node>((a,b)-> (a.freq != b.freq) ? a.freq - b.freq : a.minIdx - b.minIdx);
+        for(int i=0; i<s.length(); i++) {
+            pq.add(new Node(f[i], i));
+        }
+        
+        if (pq.size() == 1) return new ArrayList<String>(Arrays.asList("0"));
+        
+        while(pq.size()>1) {
+            Node left = pq.poll(), right = pq.poll();
+            Node parent = new Node(left.freq + right.freq, Math.min(left.minIdx, right.minIdx));
+            parent.left = left;
+            parent.right = right;
+            pq.add(parent);
+        }
+        
+        ArrayList<String> res = new ArrayList<>();
+        traverse(pq.poll(), "", res);
+        return res;
+    }
+    
+    void traverse(Node node, String code, ArrayList<String> strs) {
+        if(node == null) return;
+        
+        if(node.left == null && node.right == null) {
+            strs.add(code);
             return;
         }
-        traverseForCodes(root.left, pre, code + "0");
-        traverseForCodes(root.right, pre, code + "1");
+            
+        traverse(node.left, code+'0', strs);
+            
+        traverse(node.right, code+'1', strs);
     }
 }
