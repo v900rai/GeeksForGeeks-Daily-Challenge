@@ -16,7 +16,8 @@ class Solution {
              first =arr[i];
              
          }
-         else  if(arr[i] >second && first != arr[i]){
+         
+         else if(arr[i]> second && first != arr[i]){
              second = arr[i];
          }
      }
