@@ -1,25 +1,3 @@
-//{ Driver Code Starts
-// Initial template for JAVA
-
-import java.util.Scanner;
-
-class Main {
-    public static void main(String args[]) {
-        Scanner sc = new Scanner(System.in);
-        int t = sc.nextInt();
-        sc.nextLine();
-        while (t > 0) {
-            String str = sc.nextLine();
-
-            Solution obj = new Solution();
-            int num = obj.myAtoi(str);
-            System.out.println(num);
-            System.out.println("~");
-            t--;
-        }
-    }
-}
-// } Driver Code Ends
 
 
 class Solution {
