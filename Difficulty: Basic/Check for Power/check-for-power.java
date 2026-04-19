@@ -1,6 +1,5 @@
-// User function Template for Java
 class Solution {
-    public boolean isPowerOfAnother(int X, int Y) {
+    public boolean isPower(int X, int Y) {
         // code here
           if (X == 1){
            return (Y==1);
