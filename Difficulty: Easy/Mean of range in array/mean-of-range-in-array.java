@@ -1,24 +1,31 @@
-// User function Template for Java
-
 class Solution {
+    public ArrayList<Integer> findMean(int arr[], int queries[][]) {
+        
+        int n = arr.length;
+        int q = queries.length;
 
-    public ArrayList<Integer> findMean(int arr[], int q[]) {
-        ArrayList<Integer> ans = new ArrayList<Integer>();
-        int[] dp = new int[arr.length+1];
-        
-        for(int i=0; i<arr.length; i++) {
-            dp[i+1] = dp[i] + arr[i];
+        ArrayList<Integer> ans = new ArrayList<>();
+
+        int sum_arr[] = new int[n + 1];
+        sum_arr[0] = 0;
+
+        for (int i = 0; i < n; i++) {
+            sum_arr[i + 1] = sum_arr[i] + arr[i];
         }
-        
-        for(int i=0; i<q.length - 1; i+=2) {
-            int l = q[i];
-            int r = q[i+1];
-            
-            int sum = dp[r+1] - dp[l];
-            sum /= (r - l + 1);
-            ans.add(sum);
+
+        for (int i = 0; i < q; i++) {
+
+            int start = queries[i][0];
+            int end = queries[i][1] + 1;
+
+            int sum = sum_arr[end] - sum_arr[start];
+
+            int avg = sum / (end - start);
+
+            ans.add(avg);
         }
-        
+
         return ans;
     }
 }
+
