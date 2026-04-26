@@ -1,32 +1,32 @@
 class Solution {
-    // Function to find common elements in three arrays.
-    public List<Integer> commonElements(List<Integer> arr1, List<Integer> arr2,
-                                        List<Integer> arr3) {
-       Map<Integer,Integer> mp = new TreeMap<>();
-       
-       HashSet<Integer> h1 = new HashSet<>(arr1);
-       HashSet<Integer> h2 = new HashSet<>(arr2);
-       HashSet<Integer> h3 = new HashSet<>(arr3);
+    public ArrayList<Integer> commonElements(int[] a, int[] b, int[] c) {
+        // code here
+        ArrayList<Integer> ans=new ArrayList<>();
         
-        for(int i : h1){
-            mp.put(i, mp.getOrDefault(i,0)+1);
-        }
-        for(int i :h2){
-            mp.put(i,mp.getOrDefault(i,0)+1);
+        int i=0;
+        int j=0;
+        int k=0;
+        
+        
+        while(i<a.length && j<b.length && k<c.length){
+            if(a[i]==b[j] && b[j]==c[k]){
+                if((ans.size()>0 && ans.get(ans.size()-1)!= a[i] ) || ans.size()==0) ans.add(a[i]);
+                i++;
+                j++;
+                k++;
+                    
+            } 
+            if(i>=a.length || j>=b.length || k>=c.length) break;
+            int max=Math.max(a[i],Math.max(b[j],c[k]));
+            
+            while(i<a.length && a[i]<max) i++;
+            while(j<b.length && b[j]<max) j++;
+            while(k<c.length && c[k]<max) k++;
+            
+            
         }
         
-        for(int i :h3){
-            mp.put(i,mp.getOrDefault(i,0)+1);
-        }
-        
-        List<Integer> res= new ArrayList<>();
-        
-        for(Map.Entry<Integer, Integer> entry:mp.entrySet()){
-            if(entry.getValue()==3){
-                res.add(entry.getKey());
-            }
-        }
-        return res;
+        return ans;
     }
 }
 
