@@ -1,25 +1,40 @@
-// User function Template for Java
-
 class Solution {
-public int smallestSubstring(String S) {
-       HashMap<Character, Integer>map = new HashMap<>();
-       int j=0, min = Integer.MAX_VALUE;
-       for(int i=0; i<S.length(); i++){
-           char c = S.charAt(i);
-           map.put(c, map.getOrDefault(c, 0)+1);
-           while(map.size()==3){
-               min = Math.min(i-j+1, min);
-               c = S.charAt(j); 
-               if(map.get(c)==1){
-                    map.remove(c);
-               }else
-                    map.put(c, map.getOrDefault(c, 0)-1);
-                    
-                j++;
-           }
-       }
-       if(min==Integer.MAX_VALUE)
-            return -1;
-       return min;
+    public int smallestSubstring(String s) {
+        int n = s.length();
+        
+        int[] freq = new int[3]; // for '0','1','2'
+        int left = 0;
+        int count = 0; // kitne unique (0,1,2) mile
+        int minLen = Integer.MAX_VALUE;
+
+        for (int right = 0; right < n; right++) {
+            
+            int r = s.charAt(right) - '0';
+            freq[r]++;
+            
+            // agar first time mila
+            if (freq[r] == 1) {
+                count++;
+            }
+
+            // jab 0,1,2 teeno mil gaye
+            while (count == 3) {
+                
+                // minimum window update
+                minLen = Math.min(minLen, right - left + 1);
+
+                int l = s.charAt(left) - '0';
+                freq[l]--;
+
+                // agar koi character zero ho gaya
+                if (freq[l] == 0) {
+                    count--;
+                }
+
+                left++; // shrink window
+            }
+        }
+
+        return minLen == Integer.MAX_VALUE ? -1 : minLen;
     }
 }
