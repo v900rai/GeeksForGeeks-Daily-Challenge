@@ -22,7 +22,9 @@ class Solution {
         int k = 0; // pointer to fill array
 
         // Fill all 0s
-        while (count0 > 0) {
+       
+        
+        while(count0>0){
             arr[k] = 0;
             k++;
             count0--;
