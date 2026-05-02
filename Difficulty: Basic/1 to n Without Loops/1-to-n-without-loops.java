@@ -6,11 +6,17 @@ class Solution{
         // i konw very well recursion
         
         // vishal rai
-        if(N==0){
+       /* if(N==0){
             return ;
         }
         //System.out.println(N); //print
         printTillN(N-1);
+        System.out.print(N+" ");*/
+        
+        if(N  == 0){
+            return;
+        }
+        printTillN(N -1);
         System.out.print(N+" ");
     }
 }
