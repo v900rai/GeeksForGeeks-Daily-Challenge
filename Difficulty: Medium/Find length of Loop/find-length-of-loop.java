@@ -21,8 +21,7 @@ class Solution {
         while (fast != null && fast.next != null) {
             slow = slow.next;           // move slow by 1 step
             fast = fast.next.next;      // move fast by 2 steps
-
-
+            
             // Step 3: If slow and fast meet, loop is detected
             if (fast == slow) {
                 int count = 1;
