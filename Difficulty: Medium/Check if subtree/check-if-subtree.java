@@ -1,58 +1,30 @@
-/*complete the given function*/
-
-/* class Node{
+/*
+Definition for Node
+class Node {
     int data;
-    Node left,right;
-    Node(int d)
-    {
-        data=d;
-        left=null;
-        right=null;
-    }
-}*/
+    Node left;
+    Node right;
 
-class Solution 
-{
-    public static boolean isSame(Node T, Node S)
-    {
-        if(T == null && S == null)
-        {
-            return true;
-        }
-        
-        if(T == null || S == null)
-        {
-            return false;
-        }
-        if(T.data == S.data)
-        {
-            return isSame(T.left, S.left) && isSame(T.right, S.right);
-        }
-        
-        return false;
-    }
-    public static boolean isSubtree(Node T, Node S) 
-    {
-        // add code here.
-        if(S == null) 
-        {
-            return true;
-        }
-        
-        if(T == null) 
-        {
-            return false;
-        }
-        
-        if(T.data == S.data)
-        {
-            if(isSame(T,S))
-            {
-                return true;
-            }
-        }
-        
-        return isSubtree(T.left, S) || isSubtree(T.right, S);
+    Node(int x) {
+        data = x;
+        left = right = null;
     }
 }
-
+*/
+class Solution {
+    public boolean isSubTree(Node root1, Node root2) {
+        if (root2 == null) return true;
+        if (root1 == null) return false;
+        if (isIdentical(root1, root2)) {
+            return true;
+        }
+        return isSubTree(root1.left, root2) || isSubTree(root1.right, root2);
+    }
+    private boolean isIdentical(Node n1, Node n2) {
+        if (n1 == null && n2 == null) return true;
+        if (n1 == null || n2 == null) return false;
+        return (n1.data == n2.data) && 
+               isIdentical(n1.left, n2.left) && 
+               isIdentical(n1.right, n2.right);
+    }
+}
