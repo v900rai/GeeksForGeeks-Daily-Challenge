@@ -8,7 +8,8 @@ class Solution {
                 k++;
             }
         }
-        if(k==0)return -1;
+        if(k==0)
+        return -1;
         int windoFirstOnes = 0;
         for(int i = 0;i<k;i++){
             if(arr[i]==1){
