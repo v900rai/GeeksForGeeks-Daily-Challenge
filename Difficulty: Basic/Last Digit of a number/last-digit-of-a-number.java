@@ -1,10 +1,12 @@
-class Solution {
-    public static void utility(int n) {
+import java.util.*;
 
-        // just complete below statement
-        int ans = Math.abs(n %10);
+class GFG {
 
-            // below statement print the result
-            System.out.println(ans);
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+         System.out.println(Math.abs(n % 10));
+        
     }
 }
