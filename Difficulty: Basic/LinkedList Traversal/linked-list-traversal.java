@@ -1,10 +1,21 @@
-// User function Template for Java
-class Solution {
-   public static void LinkedListTraversal(LinkedList<Integer> list) {
-    // Your code here
+/*
+class Node {
+    int data;
+    Node next;
 
-        for(int i=0; i<list.size(); i++){
-        System.out.print(list.get(i)+ " ");
+    Node(int val) {
+        data = val;
+        next = null;
     }
 }
+*/
+class Solution {
+    void printList(Node head) {
+        // code here
+ Node temp = head;
+ while(temp!= null){
+     System.out.print(temp.data+" ");
+     temp = temp.next;
+ }
+    }
 }
