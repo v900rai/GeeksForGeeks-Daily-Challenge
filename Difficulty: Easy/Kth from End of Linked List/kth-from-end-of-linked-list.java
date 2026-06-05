@@ -14,8 +14,9 @@ class Solution {
         // Your code here
         Node fast = head;
         Node slow = head;
+        
         for(int i=1; i<=k; i++){
-            if(fast == null){
+            if(fast == null ){
                 return -1;
             }
             fast = fast.next;
