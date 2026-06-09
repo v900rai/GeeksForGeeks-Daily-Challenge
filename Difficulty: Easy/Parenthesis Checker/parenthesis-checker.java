@@ -6,6 +6,7 @@ class Solution {
     static boolean isBalanced(String s) {
 
         // Create a stack to store opening brackets
+       // Stack<Character> stack = new Stack<>();
         Stack<Character> stack = new Stack<>();
 
         // Iterate over each character in the given string
