@@ -11,6 +11,7 @@ class Solution {
 				secondMax = firstMax;
 				firstMax = num;
 				continue;
+				
 			}
 			if (num>secondMax && num != firstMax)
 				{
