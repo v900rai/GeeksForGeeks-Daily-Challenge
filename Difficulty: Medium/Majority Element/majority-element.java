@@ -2,6 +2,7 @@ import java.util.*;
 
 class Solution {
     static int majorityElement(int arr[]) {
+       
          if(arr.length == 1){
              return arr[0];
          }
