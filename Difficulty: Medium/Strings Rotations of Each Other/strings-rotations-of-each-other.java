@@ -1,6 +1,7 @@
 class Solution {
     public boolean areRotations(String s1, String s2) {
-        if (s1.length() != s2.length()) return false;
+        if (s1.length() != s2.length())
+        return false;
         
         String txt = s1 + s1;
         String pat = s2;
