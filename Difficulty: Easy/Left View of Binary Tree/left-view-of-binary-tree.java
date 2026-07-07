@@ -24,7 +24,8 @@ class Solution {
     // Function to return list containing elements of left view of binary tree.
     ArrayList<Integer> leftView(Node root) {
         ArrayList<Integer> result = new ArrayList<>();
-        if (root == null) return result; // If the tree is empty, return an empty list
+        if (root == null)
+        return result; // If the tree is empty, return an empty list
         
         Queue<Node> queue = new LinkedList<>();
         queue.add(root); // Start with the root node
