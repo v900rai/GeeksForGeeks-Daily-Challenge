@@ -3,6 +3,7 @@ class Solution {
         // Code here
         int n = s.length();
        StringBuilder st = new StringBuilder();
+       
        List<String>ans=new ArrayList<>();
         for(int i =0 ; i<n;i++)
         {
