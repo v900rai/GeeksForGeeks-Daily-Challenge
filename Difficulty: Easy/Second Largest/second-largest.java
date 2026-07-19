@@ -9,7 +9,7 @@ class Solution {
 			if (num>firstMax)
 				{
 				secondMax = firstMax;
-				firstMax = num;
+				firstMax =num;
 				continue;
 				
 			}
