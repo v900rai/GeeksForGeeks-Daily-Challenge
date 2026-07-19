@@ -7,6 +7,7 @@ class Solution {
 		
 		int i = 0;
 		for (int j = 0; j<n; j++) {
+			//sum = sum + arr[j];
 			sum = sum + arr[j];
 			
 			while (sum > target && i < j) {
