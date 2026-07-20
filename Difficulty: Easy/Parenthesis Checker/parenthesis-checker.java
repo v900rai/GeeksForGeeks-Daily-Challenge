@@ -15,8 +15,9 @@ class Solution {
             char c = s.charAt(i); // current character
 
             // If character is an opening bracket, push into stack
-            if (c == '(' || c == '{' || c == '[') {
-                stack.push(c); // store the bracket
+           
+            if(c == '(' || c == '{' || c =='['){
+                stack.push(c);
             }
 
             // If character is a closing bracket
