@@ -1,17 +1,20 @@
 class Solution {
-    public static void utility(int a, int b, int opr) {
+    public void calculate(int a, int b, int operator) {
         // code here
-        if(opr==1){
-            System.out.print(String.valueOf(a+b)+" ");
+        
+        switch(operator){
+            case 1:
+                System.out.print(a+b);
+                break;
+            case 2:
+                System.out.print(a-b);
+                break;
+            case 3:
+                System.out.print(a*b);
+                break;
+            default:
+                System.out.print("Invalid Input");
         }
-        else if(opr==2){
-            System.out.print(String.valueOf(a-b)+" ");
-        }
-        else if(opr==3){
-            System.out.print(String.valueOf(a*b)+" ");
-        }
-        else{
-            System.out.print("Invalid Input");
-        }
+        
     }
-} 
+}
