@@ -1,23 +1,21 @@
-// User function Template for Java
-
 class Solution {
     static double switchCase(int choice, List<Double> arr) {
-        // code here
-        switch(choice){
+        switch (choice) {
             case 1:
-            double R=arr.get(0);
-            return Math.PI*R*R;
-            
+                // Grab the radius from the first position (index 0)
+                double radius = arr.get(0);
+                // Formula: pi * r * r
+                return Math.PI * radius * radius;
+                
             case 2:
-            double L=arr.get(0);
-            double B=arr.get(1);
-            return L*B;
-            
+                // Grab length from index 0 and breadth from index 1
+                double length = arr.get(0);
+                double breadth = arr.get(1);
+                // Formula: length * breadth
+                return length * breadth;
+                
             default:
-            return 0;
+                return 0.0;
         }
     }
 }
-
-
-
