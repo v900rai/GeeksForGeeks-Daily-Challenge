@@ -12,8 +12,8 @@ class Solution{
         //System.out.println(N); //print
         printTillN(N-1);
         System.out.print(N+" ");*/
-        
-        if(N  == 0){
+       
+        if(N == 0){
             return;
         }
         printTillN(N -1);
