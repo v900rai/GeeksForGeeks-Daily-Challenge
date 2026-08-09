@@ -1,11 +1,10 @@
 class Solution {
-
-    void printNos(int N) {
-        if(N==0){
+    void printNos(int n) {
+        // code here
+        if(n==0){
             return;
         }
-        System.out.print(N+" ");
-        printNos(N-1);
-        
+        System.out.print(n+" ");
+        printNos(n-1);
     }
 }
