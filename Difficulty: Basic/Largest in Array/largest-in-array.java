@@ -1,9 +1,11 @@
 class Solution {
     public static int largest(int[] arr) {
         
-       int max = arr[0];
+
+       
+       int max  = 0;
        for(int num : arr){
-           if(num > max){
+           if(num> max){
                max = num;
            }
        }
