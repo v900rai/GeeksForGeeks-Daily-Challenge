@@ -3,8 +3,8 @@ class Solution {
         int i = 0;
         int j = 0;             // i = window start, j = window end
         int sum = 0;
-        int max = Integer.MIN_VALUE; // sum = current window sum, max = final answer
-        
+      //  int max = Integer.MIN_VALUE; // sum = current window sum, max = final answer
+        int max  = Integer.MIN_VALUE;
         while (j < arr.length) {
             sum =sum +  arr[j];  // नया element add कर रहे हैं
             
