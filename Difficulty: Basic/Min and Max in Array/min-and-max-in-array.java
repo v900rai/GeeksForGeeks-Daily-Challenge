@@ -5,7 +5,8 @@ class Solution {
         ArrayList<Integer> result = new ArrayList<>();
         
         // Edge case : agar array empty ho
-        if(arr  == null || arr.length==0){
+      
+        if(arr == null || arr.length==0){
             return result;
         }
         
