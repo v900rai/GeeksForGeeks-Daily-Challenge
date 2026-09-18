@@ -1,29 +1,27 @@
-//{ Driver Code Starts
-import java.lang.Math;
-import java.util.Scanner;
-
-class Convert_To_Five {
-    public static void main(String args[]) {
-        Scanner sc = new Scanner(System.in);
-        int T = sc.nextInt();
-        while (T > 0) {
-            int N = sc.nextInt();
-            System.out.println(new Solution().convertfive(N));
-            T--;
-        
-System.out.println("~");
-}
-    }
-}
-// } Driver Code Ends
-
-
 class Solution {
-    int convertfive(int num) {
-        
-        String str = Integer.toString(num);
-        String red = str.replaceAll("0","5");
-        num = Integer.parseInt(red);
-        return num;
+    public int convertFive(int n) {
+        // code here
+        int final_reasult = 0;
+        int fr = 0;
+        if(n==0){
+            return 5;
+        }
+        while(n>0){
+            int last_digit = n%10;
+            if(last_digit==0){
+                last_digit = 5;
+            }
+            final_reasult = final_reasult*10+last_digit;
+            n=n/10;
+        }
+
+        while(final_reasult>0){
+            int ld= final_reasult%10;
+
+            fr = fr*10+ld;
+            final_reasult=final_reasult/10;
+        }
+        return fr;
+
     }
 }
