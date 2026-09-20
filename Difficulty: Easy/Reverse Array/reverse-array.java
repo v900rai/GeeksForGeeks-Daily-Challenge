@@ -9,6 +9,7 @@ class Solution {
             arr[right] = temp;
             left++;
             right--;
+            
         }
     }
 }
