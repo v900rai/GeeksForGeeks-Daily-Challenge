@@ -1,28 +1,27 @@
 class Solution {
-    public int maxCircularSum(int arr[]) {
-        // code here
-        int maxSoFar = arr[0];
-        int max = arr[0];
-        int minSoFar = arr[0];
-        int min = arr[0];
-        
-        int total = arr[0];
-        
-        for(int i=1;i<arr.length;i++)
-        {
-            max = Math.max(arr[i],arr[i]+max);
-            maxSoFar = Math.max(maxSoFar,max);
-            
-            min = Math.min(arr[i],arr[i]+min);
-            minSoFar = Math.min(minSoFar,min);
-            
-            total+=arr[i];
+    public int maxCircularSum(int[] arr) {
+        int totalSum = 0;
+        int currMax = 0, globalMax = Integer.MIN_VALUE;
+        int currMin = 0, globalMin = Integer.MAX_VALUE;
+
+        for (int x : arr) {
+            totalSum += x;
+
+            // Standard Kadane's for Max Subarray
+            currMax = Math.max(x, currMax + x);
+            globalMax = Math.max(globalMax, currMax);
+
+            // Standard Kadane's for Min Subarray
+            currMin = Math.min(x, currMin + x);
+            globalMin = Math.min(globalMin, currMin);
         }
-        
-        if(maxSoFar<0)
-        return maxSoFar;
-        
-        return Math.max(maxSoFar,total-minSoFar);
-        
+
+        // If all numbers are negative, globalMax is the answer
+        if (globalMax < 0) {
+            return globalMax;
+        }
+
+        // Return the best of non-circular and circular paths
+        return Math.max(globalMax, totalSum - globalMin);
     }
 }
